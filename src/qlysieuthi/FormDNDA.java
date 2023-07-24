@@ -81,8 +81,6 @@ public class FormDNDA extends javax.swing.JFrame {
         jButton1.setText("Xác nhận");
         getContentPane().add(jButton1);
         jButton1.setBounds(170, 250, 79, 23);
-
-        jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(154, 102, 210, 22);
 
