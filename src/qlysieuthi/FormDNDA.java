@@ -40,6 +40,7 @@ public class FormDNDA extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -51,10 +52,11 @@ public class FormDNDA extends javax.swing.JFrame {
         jLabel1.setBounds(170, 19, 76, 25);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(new java.awt.Color(0, 255, 0));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
         jLabel2.setText("Tên khách hàng");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(36, 65, 82, 16);
+        jLabel2.setBounds(36, 65, 110, 20);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(154, 62, 210, 22);
 
@@ -84,9 +86,13 @@ public class FormDNDA extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(154, 102, 210, 22);
 
-        jLabel6.setText("jLabel6");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/bgQLST.jpg"))); // NOI18N
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 400, 310);
+        jLabel6.setBounds(0, 0, 810, 380);
+
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(30, 10, 38, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,6 +141,7 @@ public class FormDNDA extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
