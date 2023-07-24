@@ -84,7 +84,6 @@ public class FormDNDA extends javax.swing.JFrame {
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(154, 102, 210, 22);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/slide5/IMG/bgLOgin.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 400, 310);

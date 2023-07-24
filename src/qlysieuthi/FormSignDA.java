@@ -39,6 +39,9 @@ public class FormSignDA extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setForeground(new java.awt.Color(51, 255, 255));
         getContentPane().setLayout(null);
 
         jLabel1.setForeground(new java.awt.Color(0, 255, 204));
@@ -58,8 +61,6 @@ public class FormSignDA extends javax.swing.JFrame {
         jLabel3.setText("MẬT KHẨU");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(80, 110, 66, 16);
-
-        jPasswordField1.setText("jPasswordField1");
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(160, 110, 153, 22);
 
@@ -74,7 +75,7 @@ public class FormSignDA extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/slide5/IMG/bg.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(50, 10, 310, 220);
+        jLabel4.setBounds(50, 10, 330, 220);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
