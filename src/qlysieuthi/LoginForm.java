@@ -136,7 +136,20 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnGuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+        if (txtTaiKhoan.getText().isEmpty() || txtMatkhau.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Không được bỏ trống");
+            return;
+        }
+        if (txtTaiKhoan.getText().equals(User1) && txtMatkhau.getText().equals(Pass1)) {
+            JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+
+        } else if (txtTaiKhoan.getText().equals(User2) && txtMatkhau.getText().equals(Pass2)) {
+            JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
+
+        }
     }//GEN-LAST:event_btnGuiActionPerformed
 
     /**
