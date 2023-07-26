@@ -14,8 +14,7 @@ public class LoginForm extends javax.swing.JFrame {
 
     String User1 = "User1";
     String Pass1 = "123";
-    String User2 = "User2";
-    String Pass2 = "456";
+   
 
     /**
      * Creates new form LoginForm
@@ -144,14 +143,12 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Mật khẩu không được bỏ trống");
             return;
         }
-        if (txtTaiKhoan.getText().equals(User1) && txtMatkhau.getText().equals(Pass1)) {
+        if (txtTaiKhoan.getText().equalsIgnoreCase(User1) && txtMatkhau.getText().equals(Pass1)) {
             JOptionPane.showMessageDialog(this, "Đăng nhập thành công tài khoản 1");
-
-        } else if (txtTaiKhoan.getText().equals(User2) && txtMatkhau.getText().equals(Pass2)) {
-            JOptionPane.showMessageDialog(this, "Đăng nhập thành công tài khoản 2");
-
         } else {
             JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
+            txtMatkhau.setText("");
+            txtTaiKhoan.setText("");
 
         }
     }//GEN-LAST:event_btnGuiActionPerformed
