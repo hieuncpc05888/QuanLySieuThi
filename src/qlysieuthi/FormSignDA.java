@@ -4,12 +4,18 @@
  */
 package qlysieuthi;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author NGUYEN CHI HIEU
  */
 public class FormSignDA extends javax.swing.JFrame {
 
+    String User1 = "User1";
+    String Pass1 = "123";
+    String User2 = "User2";
+    String Pass2 = "456";
     /**
      * Creates new form FormSign
      */
@@ -31,11 +37,11 @@ public class FormSignDA extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTaiKhoan = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtMatkhau = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        btnGui = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,24 +60,29 @@ public class FormSignDA extends javax.swing.JFrame {
         jLabel2.setText("ĐĂNG NHẬP");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(160, 40, 120, 25);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(160, 70, 153, 22);
+        getContentPane().add(txtTaiKhoan);
+        txtTaiKhoan.setBounds(160, 70, 153, 22);
 
         jLabel3.setForeground(new java.awt.Color(0, 255, 204));
         jLabel3.setText("MẬT KHẨU");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(80, 110, 66, 16);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(160, 110, 153, 22);
+        getContentPane().add(txtMatkhau);
+        txtMatkhau.setBounds(160, 110, 153, 22);
 
         jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("Nhớ mật khẩu?");
         getContentPane().add(jCheckBox1);
         jCheckBox1.setBounds(160, 150, 104, 20);
 
-        jButton1.setText("GỬI");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(190, 180, 50, 20);
+        btnGui.setText("GỬI");
+        btnGui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGui);
+        btnGui.setBounds(190, 180, 50, 20);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/slide5/IMG/bg.jpg"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -79,6 +90,11 @@ public class FormSignDA extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+    }//GEN-LAST:event_btnGuiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,13 +133,13 @@ public class FormSignDA extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnGui;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtMatkhau;
+    private javax.swing.JTextField txtTaiKhoan;
     // End of variables declaration//GEN-END:variables
 }
