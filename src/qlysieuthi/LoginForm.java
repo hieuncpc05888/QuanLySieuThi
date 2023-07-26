@@ -22,7 +22,7 @@ public class LoginForm extends javax.swing.JFrame {
     public LoginForm() {
         initComponents();
         setLocationRelativeTo(null);
-        setSize(400, 270);
+        
     }
 
     /**
@@ -93,6 +93,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel5.setBounds(0, 0, 420, 240);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiActionPerformed
