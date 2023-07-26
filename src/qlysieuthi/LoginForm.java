@@ -136,15 +136,19 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnGuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiActionPerformed
         // TODO add your handling code here:
-        if (txtTaiKhoan.getText().isEmpty() || txtMatkhau.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Không được bỏ trống");
+        if (txtTaiKhoan.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Tên tài khoản không được bỏ trống");
+            return;
+        }
+        if (txtMatkhau.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu không được bỏ trống");
             return;
         }
         if (txtTaiKhoan.getText().equals(User1) && txtMatkhau.getText().equals(Pass1)) {
-            JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+            JOptionPane.showMessageDialog(this, "Đăng nhập thành công tài khoản 1");
 
         } else if (txtTaiKhoan.getText().equals(User2) && txtMatkhau.getText().equals(Pass2)) {
-            JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+            JOptionPane.showMessageDialog(this, "Đăng nhập thành công tài khoản 2");
 
         } else {
             JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
