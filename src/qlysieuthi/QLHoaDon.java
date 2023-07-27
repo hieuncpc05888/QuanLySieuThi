@@ -47,8 +47,6 @@ public class QLHoaDon extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
@@ -150,13 +148,6 @@ public class QLHoaDon extends javax.swing.JFrame {
         getContentPane().add(jTextField6);
         jTextField6.setBounds(167, 275, 213, 22);
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setText("Hóa Đơn Chi Tiết");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(33, 316, 94, 16);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(167, 316, 213, 22);
-
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +156,7 @@ public class QLHoaDon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExit);
-        btnExit.setBounds(233, 365, 107, 37);
+        btnExit.setBounds(230, 340, 107, 37);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
         jLabel10.setText("jLabel10");
@@ -239,7 +230,6 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -247,6 +237,5 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
