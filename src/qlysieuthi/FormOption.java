@@ -29,12 +29,10 @@ public class FormOption extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -47,49 +45,46 @@ public class FormOption extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton1.setText("QUẢN LÝ NHÂN VIÊN");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(49, 86, 145, 23);
+        jPanel1.setBackground(new java.awt.Color(0, 255, 102));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setText("QUẢN LÝ KHÁCH HÀNG");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(253, 86, 159, 23);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 51));
+        jLabel1.setText("Hãy nhấn vào Option để lựa chọn và nhấn nút Exit để thoát!!");
+        jPanel1.add(jLabel1);
 
-        jButton3.setText("QUẢN LÝ HÓA ĐƠN");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(486, 86, 137, 23);
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("Thank you for all!!");
+        jPanel1.add(jLabel3);
 
-        jButton4.setText("QUẢN LÝ HÀNG HÓA");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(49, 163, 144, 23);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(70, 80, 510, 60);
 
-        jButton5.setText("QUẢN LÝ KHO HÀNG HÓA");
-        getContentPane().add(jButton5);
-        jButton5.setBounds(451, 163, 172, 23);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/MENUOPTION2.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -20, 660, 310);
 
-        jButton6.setText("EXIT");
-        getContentPane().add(jButton6);
-        jButton6.setBounds(290, 220, 72, 23);
+        jMenu1.setText("Option");
 
-        jMenu1.setText("File");
-
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Quản lý nhân viên");
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("Quản lý khách hàng");
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("jMenuItem3");
+        jMenuItem3.setText("Quản lý hóa đơn");
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setText("jMenuItem4");
+        jMenuItem4.setText("Quản lý hàng hóa");
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Exit");
 
-        jMenuItem5.setText("jMenuItem5");
+        jMenuItem5.setText("Exit");
         jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
@@ -135,12 +130,9 @@ public class FormOption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -149,5 +141,6 @@ public class FormOption extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -46,6 +46,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +87,13 @@ public class QLNhanVien extends javax.swing.JFrame {
 
         jLabel8.setText("Lương");
 
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,7 +128,9 @@ public class QLNhanVien extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnExit)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -163,12 +173,17 @@ public class QLNhanVien extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(jButton3)
+                            .addComponent(btnExit))
                         .addGap(27, 27, 27))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +222,7 @@ public class QLNhanVien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
