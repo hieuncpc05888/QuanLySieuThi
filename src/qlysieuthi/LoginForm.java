@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class LoginForm extends javax.swing.JFrame {
 
-    String User1 = "User1";
+    String User = "Admin";
     String Pass1 = "123";
    
 
@@ -22,7 +22,7 @@ public class LoginForm extends javax.swing.JFrame {
     public LoginForm() {
         initComponents();
         setLocationRelativeTo(null);
-        
+        setSize(410,270);
     }
 
     /**
@@ -90,7 +90,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 420, 240);
+        jLabel5.setBounds(-20, 0, 420, 230);
 
         pack();
         setLocationRelativeTo(null);
@@ -106,8 +106,10 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Mật khẩu không được bỏ trống");
             return;
         }
-        if (txtTaiKhoan.getText().equalsIgnoreCase(User1) && txtMatkhau.getText().equals(Pass1)) {
-            JOptionPane.showMessageDialog(this, "Đăng nhập thành công tài khoản 1");
+        if (txtTaiKhoan.getText().equalsIgnoreCase(User) && txtMatkhau.getText().equals(Pass1)) {
+            JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+            FormOption form = new FormOption();
+            form.show();
         } else {
             JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
             txtMatkhau.setText("");
