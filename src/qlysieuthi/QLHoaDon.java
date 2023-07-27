@@ -48,7 +48,10 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -61,17 +64,17 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Mã Hóa Đơn");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(33, 73, 80, 16);
+        jLabel2.setBounds(30, 70, 80, 16);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Số Lượng");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(33, 110, 53, 16);
+        jLabel3.setBounds(30, 150, 53, 16);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Đơn Giá");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(33, 150, 45, 16);
+        jLabel4.setBounds(30, 230, 45, 16);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(167, 70, 213, 22);
         getContentPane().add(jTextField2);
@@ -102,7 +105,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Ngày Lập Hóa Đơn");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(33, 193, 110, 16);
+        jLabel5.setBounds(30, 190, 110, 16);
         getContentPane().add(jTextField4);
         jTextField4.setBounds(167, 193, 213, 22);
 
@@ -131,7 +134,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Mã NV");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(33, 233, 50, 16);
+        jLabel7.setBounds(30, 270, 50, 16);
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,9 +147,9 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Mã KH");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(33, 275, 40, 16);
+        jLabel8.setBounds(30, 310, 40, 16);
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(167, 275, 213, 22);
+        jTextField6.setBounds(170, 310, 213, 22);
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
         btnExit.setText("Exit");
@@ -156,12 +159,21 @@ public class QLHoaDon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExit);
-        btnExit.setBounds(230, 340, 107, 37);
+        btnExit.setBounds(230, 360, 107, 37);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(0, 0, 570, 420);
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setText("Mã Hàng Hóa");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(30, 110, 90, 16);
+        getContentPane().add(jTextField7);
+        jTextField7.setBounds(169, 150, 213, 22);
+        getContentPane().add(jTextField8);
+        jTextField8.setBounds(170, 270, 210, 22);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
+        jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(0, 0, 570, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,7 +234,7 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -230,6 +242,7 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -237,5 +250,7 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
