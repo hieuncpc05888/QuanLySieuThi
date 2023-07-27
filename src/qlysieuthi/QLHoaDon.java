@@ -17,7 +17,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Quan Ly Hoa Don");
-        setSize(580, 455);
+        setSize(610, 495);
     }
 
     /**
@@ -51,6 +51,8 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,17 +92,17 @@ public class QLHoaDon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(420, 170, 110, 27);
+        jButton1.setBounds(420, 170, 160, 27);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         jButton2.setText("Cập Nhật");
         getContentPane().add(jButton2);
-        jButton2.setBounds(420, 230, 110, 27);
+        jButton2.setBounds(420, 230, 160, 27);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
-        jButton3.setText("Xóa");
+        jButton3.setText("Tính thành tiền");
         getContentPane().add(jButton3);
-        jButton3.setBounds(420, 290, 110, 23);
+        jButton3.setBounds(420, 283, 160, 30);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Ngày Lập Hóa Đơn");
@@ -129,7 +131,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(430, 70, 86, 62);
+        jPanel1.setBounds(460, 70, 86, 62);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Mã NV");
@@ -159,7 +161,7 @@ public class QLHoaDon extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExit);
-        btnExit.setBounds(230, 360, 107, 37);
+        btnExit.setBounds(250, 410, 107, 37);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Mã Hàng Hóa");
@@ -170,10 +172,17 @@ public class QLHoaDon extends javax.swing.JFrame {
         getContentPane().add(jTextField8);
         jTextField8.setBounds(170, 270, 210, 22);
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setText("Thành tiền");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(30, 356, 64, 16);
+        getContentPane().add(jTextField9);
+        jTextField9.setBounds(170, 353, 213, 22);
+
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
         jLabel11.setText("jLabel11");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(0, 0, 570, 430);
+        jLabel11.setBounds(0, 0, 620, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -234,6 +243,7 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -252,5 +262,6 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
