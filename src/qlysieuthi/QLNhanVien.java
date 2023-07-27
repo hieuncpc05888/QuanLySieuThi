@@ -15,6 +15,8 @@ public class QLNhanVien extends javax.swing.JFrame {
      */
     public QLNhanVien() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Quan Ly Nhan Vien");
     }
 
     /**
