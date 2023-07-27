@@ -110,6 +110,7 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
             FormOption form = new FormOption();
             form.show();
+            this.hide();
         } else {
             JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
             txtMatkhau.setText("");

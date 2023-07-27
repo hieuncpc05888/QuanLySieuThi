@@ -41,6 +41,7 @@ public class FormOption extends javax.swing.JFrame {
         mnHanghoa = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnExit = new javax.swing.JMenuItem();
+        mnBack = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -112,6 +113,14 @@ public class FormOption extends javax.swing.JFrame {
         });
         jMenu2.add(mnExit);
 
+        mnBack.setText("Back Option");
+        mnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnBackActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnBack);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -120,28 +129,38 @@ public class FormOption extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_mnExitActionPerformed
 
     private void mnNhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNhanvienActionPerformed
         QLNhanVien nv = new QLNhanVien();
-            nv.show();
+        nv.show();
+        this.hide();
     }//GEN-LAST:event_mnNhanvienActionPerformed
 
     private void mnKhachhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnKhachhangActionPerformed
-       QLKhachHang kh = new QLKhachHang();
-            kh.show();
+        QLKhachHang kh = new QLKhachHang();
+        kh.show();
+        this.hide();
     }//GEN-LAST:event_mnKhachhangActionPerformed
 
     private void mnHoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHoadonActionPerformed
         QLHoaDon hd = new QLHoaDon();
-            hd.show();
+        hd.show();
+        this.hide();
     }//GEN-LAST:event_mnHoadonActionPerformed
 
     private void mnHanghoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHanghoaActionPerformed
         QLHangHoavsKho hh = new QLHangHoavsKho();
-            hh.show();
+        hh.show();
+        this.hide();
     }//GEN-LAST:event_mnHanghoaActionPerformed
+
+    private void mnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBackActionPerformed
+        LoginForm lg = new LoginForm();
+        lg.show();
+        this.hide();
+    }//GEN-LAST:event_mnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +205,7 @@ public class FormOption extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem mnBack;
     private javax.swing.JMenuItem mnExit;
     private javax.swing.JMenuItem mnHanghoa;
     private javax.swing.JMenuItem mnHoadon;
