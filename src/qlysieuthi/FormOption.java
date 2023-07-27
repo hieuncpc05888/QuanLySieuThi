@@ -40,7 +40,7 @@ public class FormOption extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mnExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -84,8 +84,13 @@ public class FormOption extends javax.swing.JFrame {
 
         jMenu2.setText("Exit");
 
-        jMenuItem5.setText("Exit");
-        jMenu2.add(jMenuItem5);
+        mnExit.setText("Exit");
+        mnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnExitActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnExit);
 
         jMenuBar1.add(jMenu2);
 
@@ -93,6 +98,10 @@ public class FormOption extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,7 +149,7 @@ public class FormOption extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem mnExit;
     // End of variables declaration//GEN-END:variables
 }
