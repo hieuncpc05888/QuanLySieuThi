@@ -69,6 +69,9 @@ public class FormOption extends javax.swing.JFrame {
 
         jMenu1.setText("Option");
 
+        mnNhanvien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnNhanvien.setForeground(new java.awt.Color(255, 51, 51));
+        mnNhanvien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-first-1-25.png"))); // NOI18N
         mnNhanvien.setText("Quản lý nhân viên");
         mnNhanvien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +80,8 @@ public class FormOption extends javax.swing.JFrame {
         });
         jMenu1.add(mnNhanvien);
 
+        mnKhachhang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnKhachhang.setForeground(new java.awt.Color(255, 0, 0));
         mnKhachhang.setText("Quản lý khách hàng");
         mnKhachhang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +90,8 @@ public class FormOption extends javax.swing.JFrame {
         });
         jMenu1.add(mnKhachhang);
 
+        mnHoadon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnHoadon.setForeground(new java.awt.Color(255, 51, 0));
         mnHoadon.setText("Quản lý hóa đơn");
         mnHoadon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +100,8 @@ public class FormOption extends javax.swing.JFrame {
         });
         jMenu1.add(mnHoadon);
 
+        mnHanghoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnHanghoa.setForeground(new java.awt.Color(255, 0, 0));
         mnHanghoa.setText("Quản lý hàng hóa");
         mnHanghoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +122,7 @@ public class FormOption extends javax.swing.JFrame {
         });
         jMenu2.add(mnExit);
 
-        mnBack.setText("Back Option");
+        mnBack.setText("Back Login");
         mnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnBackActionPerformed(evt);

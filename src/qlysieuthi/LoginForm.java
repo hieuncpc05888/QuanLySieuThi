@@ -22,7 +22,8 @@ public class LoginForm extends javax.swing.JFrame {
     public LoginForm() {
         initComponents();
         setLocationRelativeTo(null);
-        setSize(410,270);
+        setTitle("LOGIN");
+        setSize(410,260);
     }
 
     /**
