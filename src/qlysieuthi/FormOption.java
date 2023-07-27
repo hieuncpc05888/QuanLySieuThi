@@ -120,7 +120,7 @@ public class FormOption extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitActionPerformed
-       
+       System.exit(0);
     }//GEN-LAST:event_mnExitActionPerformed
 
     private void mnNhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNhanvienActionPerformed
