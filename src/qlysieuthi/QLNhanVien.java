@@ -4,11 +4,25 @@
  */
 package qlysieuthi;
 
+import DatabaseHelper.DatabaseHelper;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author NGUYEN CHI HIEU
  */
 public class QLNhanVien extends javax.swing.JFrame {
+
+    List<Nhanvien> list = new ArrayList<>();
 
     /**
      * Creates new form QLSieuThi
@@ -17,7 +31,8 @@ public class QLNhanVien extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Quan Ly Nhan Vien");
-       
+        loadData();
+
     }
 
     /**
@@ -193,9 +208,14 @@ public class QLNhanVien extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblData);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 352, -1, 197));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, 352, 560, 197));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/ky-nang-quan-ly-nhan-vien.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
@@ -209,7 +229,7 @@ public class QLNhanVien extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void rdoNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNamActionPerformed
@@ -230,7 +250,73 @@ public class QLNhanVien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCapnhatActionPerformed
 
-    
+    private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
+//        hienthi();
+    }//GEN-LAST:event_tblDataMouseClicked
+
+//    public void save() {
+////        if (check()) {
+//        try {
+//            String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=QLSINHVIEN;user=sa;password=12345;encrypt=true;trustServerCertificate=true;";
+//            Connection con = DriverManager.getConnection(connectionUrl);
+//            String sql = "insert into NHANVIEN values(?,?,?,?,?,?)";
+//            PreparedStatement st = con.prepareStatement(sql);
+//            st.setString(1, txtManv.getText());
+//            st.setString(2, txtTennv.getText());
+//            st.setString(3, txtNgaysinh.getText());
+//            st.setString(4, txtDiachi.getText());
+//            boolean gt;
+//            if (rdoNam.isSelected()) {
+//                gt = true;
+//            } else {
+//                gt = false;
+//            }
+//            st.setBoolean(5, gt);
+//            st.setString(6, txtLuong.getText());
+//            st.executeUpdate();
+//            JOptionPane.showMessageDialog(this, "Thêm thành công");
+//            con.close();
+//            loadData();
+//        } catch (Exception e) {
+//            System.out.println(e);
+//            JOptionPane.showMessageDialog(this, "Error!");
+//        }
+//    }
+//    }
+    public void loadData() {
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            System.out.println("Kết nối thành công");
+            String SQL = "select * from NHANVIEN";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            String[] columnNames = {"MANV", "TENNV", "NGSINH", "DCHI", "PHAI", "LUONG"};
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+            while (rs.next()) {
+                model.addRow(new Object[]{rs.getString("MANV"), rs.getString("TENNV"), rs.getDate("NGSINH"), rs.getString("DCHI"), rs.getString("Phai"), rs.getDouble("Luong")});
+            }
+            tblData.setModel(model);
+        } catch (SQLException e) {
+            System.out.println("Kết nối lỗi");
+            e.printStackTrace();
+        }
+    }
+
+//    public void hienthi() {
+//        int index = tblData.getSelectedRow();
+//        Nhanvien nv = new Nhanvien();
+//        txtManv.setText(nv.getManv());
+//        txtTennv.setText(nv.getTennv());
+//        txtNgaysinh.setText(nv.getNgaySinh());
+//        txtDiachi.setText(nv.getDchi());
+//        boolean gt = nv.isPhai();
+//        txtDiachi.setText(nv.getLuong());
+//        if (gt == true) {
+//            rdoNam.setSelected(true);
+//        } else {
+//            rdoNu.setSelected(true);
+//        }
+//    }
 
     /**
      * @param args the command line arguments

@@ -106,9 +106,7 @@ public class LoginForm extends javax.swing.JFrame {
             this.hide();
         } else {
             JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
-            txtMatkhau.setText("");
-            txtTaiKhoan.setText("");
-
+           
         }
     }//GEN-LAST:event_btnGuiActionPerformed
 

@@ -347,7 +347,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="53" y="352" width="-1" height="197"/>
+          <AbsoluteConstraints x="-5" y="352" width="560" height="197"/>
         </Constraint>
       </Constraints>
 
@@ -364,6 +364,9 @@
               </Table>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblDataMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
