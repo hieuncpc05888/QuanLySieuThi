@@ -30,15 +30,16 @@ public class FormOption extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        mnNhanvien = new javax.swing.JMenuItem();
-        mnKhachhang = new javax.swing.JMenuItem();
-        mnHoadon = new javax.swing.JMenuItem();
-        mnHanghoa = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnExit = new javax.swing.JMenuItem();
         mnBack = new javax.swing.JMenuItem();
@@ -49,15 +50,20 @@ public class FormOption extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 51));
-        jLabel1.setText("Hãy nhấn vào Option để lựa chọn và nhấn nút Exit để thoát!!");
-        jPanel1.add(jLabel1);
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setText("Hãy nhấn vào Option để lựa chọn và nhấn nút Exit để thoát!!");
+        jPanel1.add(jLabel4);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel3.setText("Thank you for all!!");
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel3);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 51));
+        jLabel1.setText(" Ấn Back để trở về giao diện login!!!");
+        jPanel1.add(jLabel1);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(70, 80, 510, 60);
@@ -69,51 +75,40 @@ public class FormOption extends javax.swing.JFrame {
 
         jMenu1.setText("Option");
 
-        mnNhanvien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnNhanvien.setForeground(new java.awt.Color(255, 51, 51));
-        mnNhanvien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-first-1-25.png"))); // NOI18N
-        mnNhanvien.setText("Quản lý nhân viên");
-        mnNhanvien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnNhanvienActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnNhanvien);
+        jCheckBoxMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jCheckBoxMenuItem1.setForeground(new java.awt.Color(255, 0, 51));
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Quản lý nhân viên");
+        jMenu1.add(jCheckBoxMenuItem1);
 
-        mnKhachhang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnKhachhang.setForeground(new java.awt.Color(255, 0, 0));
-        mnKhachhang.setText("Quản lý khách hàng");
-        mnKhachhang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnKhachhangActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnKhachhang);
+        jCheckBoxMenuItem2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jCheckBoxMenuItem2.setForeground(new java.awt.Color(255, 0, 51));
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("Quản lý khách hàng");
+        jMenu1.add(jCheckBoxMenuItem2);
 
-        mnHoadon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnHoadon.setForeground(new java.awt.Color(255, 51, 0));
-        mnHoadon.setText("Quản lý hóa đơn");
-        mnHoadon.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jCheckBoxMenuItem3.setForeground(new java.awt.Color(255, 0, 0));
+        jCheckBoxMenuItem3.setSelected(true);
+        jCheckBoxMenuItem3.setText("Quản lý hóa đơn");
+        jCheckBoxMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnHoadonActionPerformed(evt);
+                jCheckBoxMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(mnHoadon);
+        jMenu1.add(jCheckBoxMenuItem3);
 
-        mnHanghoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnHanghoa.setForeground(new java.awt.Color(255, 0, 0));
-        mnHanghoa.setText("Quản lý hàng hóa");
-        mnHanghoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnHanghoaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnHanghoa);
+        jCheckBoxMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jCheckBoxMenuItem4.setForeground(new java.awt.Color(255, 0, 51));
+        jCheckBoxMenuItem4.setSelected(true);
+        jCheckBoxMenuItem4.setText("Quản lý hàng hóa");
+        jMenu1.add(jCheckBoxMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Exit");
 
+        mnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
         mnExit.setText("Exit");
         mnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +117,7 @@ public class FormOption extends javax.swing.JFrame {
         });
         jMenu2.add(mnExit);
 
+        mnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
         mnBack.setText("Back Login");
         mnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,35 +137,15 @@ public class FormOption extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_mnExitActionPerformed
 
-    private void mnNhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNhanvienActionPerformed
-        QLNhanVien nv = new QLNhanVien();
-        nv.show();
-        this.hide();
-    }//GEN-LAST:event_mnNhanvienActionPerformed
-
-    private void mnKhachhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnKhachhangActionPerformed
-        QLKhachHang kh = new QLKhachHang();
-        kh.show();
-        this.hide();
-    }//GEN-LAST:event_mnKhachhangActionPerformed
-
-    private void mnHoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHoadonActionPerformed
-        QLHoaDon hd = new QLHoaDon();
-        hd.show();
-        this.hide();
-    }//GEN-LAST:event_mnHoadonActionPerformed
-
-    private void mnHanghoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHanghoaActionPerformed
-        QLHangHoavsKho hh = new QLHangHoavsKho();
-        hh.show();
-        this.hide();
-    }//GEN-LAST:event_mnHanghoaActionPerformed
-
     private void mnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBackActionPerformed
         LoginForm lg = new LoginForm();
         lg.show();
         this.hide();
     }//GEN-LAST:event_mnBackActionPerformed
+
+    private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,18 +183,19 @@ public class FormOption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem mnBack;
     private javax.swing.JMenuItem mnExit;
-    private javax.swing.JMenuItem mnHanghoa;
-    private javax.swing.JMenuItem mnHoadon;
-    private javax.swing.JMenuItem mnKhachhang;
-    private javax.swing.JMenuItem mnNhanvien;
     // End of variables declaration//GEN-END:variables
 }

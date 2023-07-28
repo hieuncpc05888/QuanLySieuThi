@@ -39,7 +39,6 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -49,6 +48,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,8 +97,6 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         jLabel6.setText("Loại Kho");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(40, 230, 60, 16);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(150, 231, 205, 22);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
         jButton1.setText("Thêm");
@@ -173,10 +171,14 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(50, 320, 452, 190);
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M001", "M002", "M003", "M004" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(150, 239, 205, 22);
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/kho.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 0, 540, 610);
+        jLabel8.setBounds(0, 0, 530, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,6 +234,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -247,6 +250,5 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
