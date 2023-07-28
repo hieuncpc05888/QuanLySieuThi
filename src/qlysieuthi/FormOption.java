@@ -16,7 +16,7 @@ public class FormOption extends javax.swing.JFrame {
     public FormOption() {
         initComponents();
         setLocationRelativeTo(null);
-        setSize(660, 300);
+       
         setTitle("FORM OPTION");
     }
 
@@ -45,7 +45,7 @@ public class FormOption extends javax.swing.JFrame {
         mnBack = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,13 +65,11 @@ public class FormOption extends javax.swing.JFrame {
         jLabel1.setText(" Ấn Back để trở về giao diện login!!!");
         jPanel1.add(jLabel1);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(70, 80, 510, 60);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 510, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/MENUOPTION2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -20, 660, 310);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 650, 320));
 
         jMenu1.setText("Option");
 

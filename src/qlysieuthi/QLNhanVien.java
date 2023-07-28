@@ -17,7 +17,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Quan Ly Nhan Vien");
-        setSize(570, 660);
+       
     }
 
     /**
@@ -58,35 +58,28 @@ public class QLNhanVien extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 255));
         jLabel1.setText("Quản Lý Nhân Viên");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(120, 10, 180, 25);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 180, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Mã NV");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(33, 64, 50, 16);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 64, 50, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Tên NV");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(33, 101, 50, 16);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 101, 50, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Ngày Sinh");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(33, 141, 60, 16);
-        getContentPane().add(txtManv);
-        txtManv.setBounds(122, 61, 220, 22);
-        getContentPane().add(txtTennv);
-        txtTennv.setBounds(122, 101, 220, 22);
-        getContentPane().add(txtNgaysinh);
-        txtNgaysinh.setBounds(122, 141, 220, 22);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 141, 60, -1));
+        getContentPane().add(txtManv, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 61, 220, -1));
+        getContentPane().add(txtTennv, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 101, 220, -1));
+        getContentPane().add(txtNgaysinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 141, 220, -1));
 
         btnThem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
@@ -96,8 +89,7 @@ public class QLNhanVien extends javax.swing.JFrame {
                 btnThemActionPerformed(evt);
             }
         });
-        getContentPane().add(btnThem);
-        btnThem.setBounds(420, 150, 110, 27);
+        getContentPane().add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 110, -1));
 
         btnCapnhat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
@@ -107,19 +99,16 @@ public class QLNhanVien extends javax.swing.JFrame {
                 btnCapnhatActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCapnhat);
-        btnCapnhat.setBounds(420, 210, 110, 27);
+        getContentPane().add(btnCapnhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 110, -1));
 
         btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
         btnXoa.setText("Xóa");
-        getContentPane().add(btnXoa);
-        btnXoa.setBounds(420, 270, 110, 27);
+        getContentPane().add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Địa chỉ");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(33, 182, 50, 16);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 182, 50, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-avatar.gif"))); // NOI18N
 
@@ -140,20 +129,16 @@ public class QLNhanVien extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(430, 60, 80, 62);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("Phái");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(30, 270, 37, 16);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 37, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Lương");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(30, 310, 37, 16);
-        getContentPane().add(txtLuong);
-        txtLuong.setBounds(120, 310, 220, 22);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 37, -1));
+        getContentPane().add(txtLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 220, -1));
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
@@ -163,22 +148,19 @@ public class QLNhanVien extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit);
-        btnExit.setBounds(130, 570, 90, 30);
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 90, 30));
 
         txtDiachi.setColumns(20);
         txtDiachi.setRows(5);
         jScrollPane1.setViewportView(txtDiachi);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(120, 180, 220, 80);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 220, 80));
 
         btgGioitinh.add(rdoNu);
         rdoNu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         rdoNu.setForeground(new java.awt.Color(255, 0, 102));
         rdoNu.setText("Nữ");
-        getContentPane().add(rdoNu);
-        rdoNu.setBounds(240, 270, 50, 21);
+        getContentPane().add(rdoNu, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 50, -1));
 
         btgGioitinh.add(rdoNam);
         rdoNam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -189,8 +171,7 @@ public class QLNhanVien extends javax.swing.JFrame {
                 rdoNamActionPerformed(evt);
             }
         });
-        getContentPane().add(rdoNam);
-        rdoNam.setBounds(150, 270, 50, 21);
+        getContentPane().add(rdoNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
         btnBack.setText("Back");
@@ -199,8 +180,7 @@ public class QLNhanVien extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack);
-        btnBack.setBounds(310, 570, 100, 30);
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, 100, 30));
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,18 +195,15 @@ public class QLNhanVien extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblData);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(53, 352, 452, 197);
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 352, -1, 197));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/ky-nang-quan-ly-nhan-vien.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 560, 350);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 350));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/Background-xanh-duong-nhat.jpeg"))); // NOI18N
         jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(-10, 350, 570, 290);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 570, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -252,6 +229,8 @@ public class QLNhanVien extends javax.swing.JFrame {
     private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCapnhatActionPerformed
+
+    
 
     /**
      * @param args the command line arguments

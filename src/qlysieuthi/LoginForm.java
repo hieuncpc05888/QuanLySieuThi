@@ -23,7 +23,7 @@ public class LoginForm extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("LOGIN");
-        setSize(410,260);
+        
     }
 
     /**
@@ -45,27 +45,22 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
         jLabel1.setText("TÀI KHOẢN");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(80, 70, 66, 16);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 66, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 0, 0));
         jLabel2.setText("ĐĂNG NHẬP");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(150, 30, 120, 25);
-        getContentPane().add(txtTaiKhoan);
-        txtTaiKhoan.setBounds(160, 70, 153, 22);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 120, -1));
+        getContentPane().add(txtTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 153, -1));
 
         jLabel3.setForeground(new java.awt.Color(0, 51, 204));
         jLabel3.setText("MẬT KHẨU");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(80, 110, 66, 16);
-        getContentPane().add(txtMatkhau);
-        txtMatkhau.setBounds(160, 110, 153, 22);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 66, -1));
+        getContentPane().add(txtMatkhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 153, -1));
 
         btnGui.setForeground(new java.awt.Color(204, 0, 0));
         btnGui.setText("GỬI");
@@ -74,8 +69,7 @@ public class LoginForm extends javax.swing.JFrame {
                 btnGuiActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGui);
-        btnGui.setBounds(100, 170, 90, 23);
+        getContentPane().add(btnGui, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 90, -1));
 
         btnExit.setForeground(new java.awt.Color(204, 0, 0));
         btnExit.setText("THOÁT");
@@ -84,14 +78,12 @@ public class LoginForm extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit);
-        btnExit.setBounds(220, 170, 90, 23);
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 90, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/greenlogin.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(-20, 0, 420, 230);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 0, 430, 230));
 
         pack();
         setLocationRelativeTo(null);
