@@ -40,9 +40,8 @@ public class LoginForm extends javax.swing.JFrame {
         txtTaiKhoan = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtMatkhau = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
         btnGui = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,11 +67,6 @@ public class LoginForm extends javax.swing.JFrame {
         getContentPane().add(txtMatkhau);
         txtMatkhau.setBounds(160, 110, 153, 22);
 
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Nhớ mật khẩu?");
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(160, 150, 104, 20);
-
         btnGui.setForeground(new java.awt.Color(204, 0, 0));
         btnGui.setText("GỬI");
         btnGui.addActionListener(new java.awt.event.ActionListener() {
@@ -81,11 +75,17 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnGui);
-        btnGui.setBounds(170, 180, 90, 23);
+        btnGui.setBounds(100, 170, 90, 23);
 
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 10, 330, 220);
+        btnExit.setForeground(new java.awt.Color(204, 0, 0));
+        btnExit.setText("THOÁT");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExit);
+        btnExit.setBounds(220, 170, 90, 23);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/greenlogin.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -119,6 +119,10 @@ public class LoginForm extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnGuiActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,12 +160,11 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnGui;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField txtMatkhau;
     private javax.swing.JTextField txtTaiKhoan;
