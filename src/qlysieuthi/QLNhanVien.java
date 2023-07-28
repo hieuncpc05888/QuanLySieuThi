@@ -29,31 +29,31 @@ public class QLNhanVien extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        btgGioitinh = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        txtManv = new javax.swing.JTextField();
+        txtTennv = new javax.swing.JTextField();
+        txtNgaysinh = new javax.swing.JTextField();
+        btnThem = new javax.swing.JButton();
+        btnCapnhat = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtLuong = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        txtDiachi = new javax.swing.JTextArea();
+        rdoNu = new javax.swing.JRadioButton();
+        rdoNam = new javax.swing.JRadioButton();
         btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblData = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -81,30 +81,40 @@ public class QLNhanVien extends javax.swing.JFrame {
         jLabel4.setText("Ngày Sinh");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(33, 141, 60, 16);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(122, 61, 220, 22);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(122, 101, 220, 22);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(122, 141, 220, 22);
+        getContentPane().add(txtManv);
+        txtManv.setBounds(122, 61, 220, 22);
+        getContentPane().add(txtTennv);
+        txtTennv.setBounds(122, 101, 220, 22);
+        getContentPane().add(txtNgaysinh);
+        txtNgaysinh.setBounds(122, 141, 220, 22);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
-        jButton1.setText("Thêm");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(420, 150, 110, 27);
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
+        btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnThem);
+        btnThem.setBounds(420, 150, 110, 27);
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
-        jButton2.setText("Cập Nhật");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(420, 210, 110, 27);
+        btnCapnhat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
+        btnCapnhat.setText("Cập Nhật");
+        btnCapnhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapnhatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCapnhat);
+        btnCapnhat.setBounds(420, 210, 110, 27);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
-        jButton3.setText("Xóa");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(420, 270, 110, 27);
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
+        btnXoa.setText("Xóa");
+        getContentPane().add(btnXoa);
+        btnXoa.setBounds(420, 270, 110, 27);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Địa chỉ");
@@ -142,8 +152,8 @@ public class QLNhanVien extends javax.swing.JFrame {
         jLabel8.setText("Lương");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(30, 310, 37, 16);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(120, 310, 220, 22);
+        getContentPane().add(txtLuong);
+        txtLuong.setBounds(120, 310, 220, 22);
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
@@ -156,31 +166,31 @@ public class QLNhanVien extends javax.swing.JFrame {
         getContentPane().add(btnExit);
         btnExit.setBounds(130, 570, 90, 30);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDiachi.setColumns(20);
+        txtDiachi.setRows(5);
+        jScrollPane1.setViewportView(txtDiachi);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(120, 180, 220, 80);
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 0, 102));
-        jRadioButton1.setText("Nữ");
-        getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(240, 270, 50, 21);
+        btgGioitinh.add(rdoNu);
+        rdoNu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        rdoNu.setForeground(new java.awt.Color(255, 0, 102));
+        rdoNu.setText("Nữ");
+        getContentPane().add(rdoNu);
+        rdoNu.setBounds(240, 270, 50, 21);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 0, 51));
-        jRadioButton2.setText("Nam");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        btgGioitinh.add(rdoNam);
+        rdoNam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        rdoNam.setForeground(new java.awt.Color(255, 0, 51));
+        rdoNam.setText("Nam");
+        rdoNam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rdoNamActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(150, 270, 50, 21);
+        getContentPane().add(rdoNam);
+        rdoNam.setBounds(150, 270, 50, 21);
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
         btnBack.setText("Back");
@@ -192,7 +202,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         getContentPane().add(btnBack);
         btnBack.setBounds(310, 570, 100, 30);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -203,7 +213,7 @@ public class QLNhanVien extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblData);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(53, 352, 452, 197);
@@ -225,15 +235,23 @@ public class QLNhanVien extends javax.swing.JFrame {
        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void rdoNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoNamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_rdoNamActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         FormOption f = new FormOption();
         f.show();
         this.hide();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCapnhatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -272,12 +290,12 @@ public class QLNhanVien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btgGioitinh;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCapnhat;
     private javax.swing.JButton btnExit;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -289,15 +307,15 @@ public class QLNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JRadioButton rdoNam;
+    private javax.swing.JRadioButton rdoNu;
+    private javax.swing.JTable tblData;
+    private javax.swing.JTextArea txtDiachi;
+    private javax.swing.JTextField txtLuong;
+    private javax.swing.JTextField txtManv;
+    private javax.swing.JTextField txtNgaysinh;
+    private javax.swing.JTextField txtTennv;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,10 +36,10 @@ public class FormOption extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
+        mnNhanvien = new javax.swing.JCheckBoxMenuItem();
+        mnKhachhag = new javax.swing.JCheckBoxMenuItem();
+        mnHoadon = new javax.swing.JCheckBoxMenuItem();
+        mnHanghoa = new javax.swing.JCheckBoxMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnExit = new javax.swing.JMenuItem();
         mnBack = new javax.swing.JMenuItem();
@@ -75,34 +75,49 @@ public class FormOption extends javax.swing.JFrame {
 
         jMenu1.setText("Option");
 
-        jCheckBoxMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jCheckBoxMenuItem1.setForeground(new java.awt.Color(255, 0, 51));
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Quản lý nhân viên");
-        jMenu1.add(jCheckBoxMenuItem1);
-
-        jCheckBoxMenuItem2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jCheckBoxMenuItem2.setForeground(new java.awt.Color(255, 0, 51));
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Quản lý khách hàng");
-        jMenu1.add(jCheckBoxMenuItem2);
-
-        jCheckBoxMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jCheckBoxMenuItem3.setForeground(new java.awt.Color(255, 0, 0));
-        jCheckBoxMenuItem3.setSelected(true);
-        jCheckBoxMenuItem3.setText("Quản lý hóa đơn");
-        jCheckBoxMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        mnNhanvien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnNhanvien.setForeground(new java.awt.Color(255, 0, 51));
+        mnNhanvien.setSelected(true);
+        mnNhanvien.setText("Quản lý nhân viên");
+        mnNhanvien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem3ActionPerformed(evt);
+                mnNhanvienActionPerformed(evt);
             }
         });
-        jMenu1.add(jCheckBoxMenuItem3);
+        jMenu1.add(mnNhanvien);
 
-        jCheckBoxMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jCheckBoxMenuItem4.setForeground(new java.awt.Color(255, 0, 51));
-        jCheckBoxMenuItem4.setSelected(true);
-        jCheckBoxMenuItem4.setText("Quản lý hàng hóa");
-        jMenu1.add(jCheckBoxMenuItem4);
+        mnKhachhag.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnKhachhag.setForeground(new java.awt.Color(255, 0, 51));
+        mnKhachhag.setSelected(true);
+        mnKhachhag.setText("Quản lý khách hàng");
+        mnKhachhag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnKhachhagActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnKhachhag);
+
+        mnHoadon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnHoadon.setForeground(new java.awt.Color(255, 0, 0));
+        mnHoadon.setSelected(true);
+        mnHoadon.setText("Quản lý hóa đơn");
+        mnHoadon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnHoadonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnHoadon);
+
+        mnHanghoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        mnHanghoa.setForeground(new java.awt.Color(255, 0, 51));
+        mnHanghoa.setSelected(true);
+        mnHanghoa.setText("Quản lý hàng hóa");
+        mnHanghoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnHanghoaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnHanghoa);
 
         jMenuBar1.add(jMenu1);
 
@@ -143,9 +158,29 @@ public class FormOption extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_mnBackActionPerformed
 
-    private void jCheckBoxMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem3ActionPerformed
+    private void mnHoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHoadonActionPerformed
+        QLHoaDon hd = new QLHoaDon();
+        hd.show();
+        this.hide();
+    }//GEN-LAST:event_mnHoadonActionPerformed
+
+    private void mnNhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNhanvienActionPerformed
+        QLNhanVien nv = new QLNhanVien();
+        nv.show();
+        this.hide();
+    }//GEN-LAST:event_mnNhanvienActionPerformed
+
+    private void mnKhachhagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnKhachhagActionPerformed
+        QLKhachHang kh = new QLKhachHang();
+        kh.show();
+        this.hide();
+    }//GEN-LAST:event_mnKhachhagActionPerformed
+
+    private void mnHanghoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHanghoaActionPerformed
+        QLHangHoavsKho hh = new QLHangHoavsKho();
+        hh.show();
+        this.hide();
+    }//GEN-LAST:event_mnHanghoaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +218,6 @@ public class FormOption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -197,5 +228,9 @@ public class FormOption extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem mnBack;
     private javax.swing.JMenuItem mnExit;
+    private javax.swing.JCheckBoxMenuItem mnHanghoa;
+    private javax.swing.JCheckBoxMenuItem mnHoadon;
+    private javax.swing.JCheckBoxMenuItem mnKhachhag;
+    private javax.swing.JCheckBoxMenuItem mnNhanvien;
     // End of variables declaration//GEN-END:variables
 }
