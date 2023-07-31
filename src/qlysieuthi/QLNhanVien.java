@@ -6,6 +6,7 @@ package qlysieuthi;
 
 import Class.Nhanvien;
 import DatabaseHelper.DatabaseHelper;
+import com.sun.jdi.Value;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -258,8 +259,8 @@ public class QLNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCapnhatActionPerformed
 
     private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
-//        index = tblData.getSelectedRow();
-//        displayFrom(index);
+
+        displayFrom();
     }//GEN-LAST:event_tblDataMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -339,30 +340,32 @@ public class QLNhanVien extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Xóa thất bại!!!");
             }
 
-        } // Handle any errors that may have occurred.
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println("ket noi loi");
             e.printStackTrace();
         }
 
     }
 
-//    public void displayFrom(int i) {
-//        Nhanvien nv = list.get(i);
-//        txtManv.setText(nv.getManv());
-//        txtTennv.setText(nv.getTennv());
-//        txtNgaysinh.setText(nv.getNgaySinh());
-//        txtDiachi.setText(nv.getDchi());
-//        boolean gt = nv.isPhai();
-//        if (gt == true) {
-//            rdoNam.setSelected(true);
-//        } else {
-//            rdoNu.setSelected(true);
-//        }
-//        txtLuong.setText(nv.getLuong()+"");
-//
-//        tblData.setRowSelectionInterval(i, i);
-//    }
+    public void displayFrom() {
+        int index = tblData.getSelectedRow();
+        Nhanvien nv = new Nhanvien();
+        txtManv.setText(tblData.getValueAt(index, 0).toString());
+        txtTennv.setText(tblData.getValueAt(index, 1).toString());
+        txtNgaysinh.setText(tblData.getValueAt(index, 2).toString());
+        txtDiachi.setText(tblData.getValueAt(index, 3).toString());
+        switch (tblData.getValueAt(index, 4).toString()) {
+            case "Nam":
+                rdoNam.setSelected(true);
+                break;
+            case "Nu":
+                rdoNu.setSelected(true);
+                break;
+            default:
+                btgGioitinh.clearSelection();
+        }
+        txtLuong.setText(tblData.getValueAt(index, 5).toString());
+    }
 
     /**
      * @param args the command line arguments
