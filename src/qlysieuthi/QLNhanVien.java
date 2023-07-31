@@ -4,6 +4,7 @@
  */
 package qlysieuthi;
 
+import Class.Nhanvien;
 import DatabaseHelper.DatabaseHelper;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class QLNhanVien extends javax.swing.JFrame {
 
     List<Nhanvien> list = new ArrayList<>();
+    int index;
 
     /**
      * Creates new form QLSieuThi
@@ -119,6 +121,11 @@ public class QLNhanVien extends javax.swing.JFrame {
         btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
         btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -243,7 +250,7 @@ public class QLNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        // TODO add your handling code here:
+        insertEmployee();
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
@@ -251,38 +258,41 @@ public class QLNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCapnhatActionPerformed
 
     private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
-//        hienthi();
+//        index = tblData.getSelectedRow();
+//        displayFrom(index);
     }//GEN-LAST:event_tblDataMouseClicked
 
-//    public void save() {
-////        if (check()) {
-//        try {
-//            String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=QLSINHVIEN;user=sa;password=12345;encrypt=true;trustServerCertificate=true;";
-//            Connection con = DriverManager.getConnection(connectionUrl);
-//            String sql = "insert into NHANVIEN values(?,?,?,?,?,?)";
-//            PreparedStatement st = con.prepareStatement(sql);
-//            st.setString(1, txtManv.getText());
-//            st.setString(2, txtTennv.getText());
-//            st.setString(3, txtNgaysinh.getText());
-//            st.setString(4, txtDiachi.getText());
-//            boolean gt;
-//            if (rdoNam.isSelected()) {
-//                gt = true;
-//            } else {
-//                gt = false;
-//            }
-//            st.setBoolean(5, gt);
-//            st.setString(6, txtLuong.getText());
-//            st.executeUpdate();
-//            JOptionPane.showMessageDialog(this, "Thêm thành công");
-//            con.close();
-//            loadData();
-//        } catch (Exception e) {
-//            System.out.println(e);
-//            JOptionPane.showMessageDialog(this, "Error!");
-//        }
-//    }
-//    }
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+        xoa();
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    public void insertEmployee() {
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "Insert into NHANVIEN values(?,?,?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(SQL);
+            st.setString(1, txtManv.getText());
+            st.setString(2, txtTennv.getText());
+            st.setString(3, txtNgaysinh.getText());
+            st.setString(4, txtDiachi.getText());
+            boolean gt;
+            if (rdoNam.isSelected()) {
+                gt = true;
+            } else {
+                gt = false;
+            }
+            st.setBoolean(5, gt);
+            st.setDouble(6, Double.parseDouble(txtLuong.getText()));
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Thêm thành công");
+            con.close();
+            loadData();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public void loadData() {
         try {
             Connection con = DatabaseHelper.connectDb();
@@ -293,7 +303,14 @@ public class QLNhanVien extends javax.swing.JFrame {
             String[] columnNames = {"MANV", "TENNV", "NGSINH", "DCHI", "PHAI", "LUONG"};
             DefaultTableModel model = new DefaultTableModel(columnNames, 0);
             while (rs.next()) {
-                model.addRow(new Object[]{rs.getString("MANV"), rs.getString("TENNV"), rs.getDate("NGSINH"), rs.getString("DCHI"), rs.getString("Phai"), rs.getDouble("Luong")});
+                int Phai = rs.getInt("Phai");
+                String gt = "";
+                if (Phai == 1) {
+                    gt = "Nam";
+                } else {
+                    gt = "Nu";
+                }
+                model.addRow(new Object[]{rs.getString("MANV"), rs.getString("TENNV"), rs.getDate("NGSINH"), rs.getString("DCHI"), gt, rs.getDouble("Luong")});
             }
             tblData.setModel(model);
         } catch (SQLException e) {
@@ -302,20 +319,49 @@ public class QLNhanVien extends javax.swing.JFrame {
         }
     }
 
-//    public void hienthi() {
-//        int index = tblData.getSelectedRow();
-//        Nhanvien nv = new Nhanvien();
+    public void xoa() {
+        Nhanvien emp = new Nhanvien();
+        emp.setManv(txtManv.getText());
+        try {
+
+            Connection con = DatabaseHelper.connectDb();
+            System.out.println("ket noi thanh cong");
+            String sql = "delete from NHANVIEN where Manv=?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setString(1, emp.getManv());
+            int rs = stmt.executeUpdate();
+            if (rs > 0) {
+                JOptionPane.showMessageDialog(null, "Xóa thanh công!!!");
+                loadData();
+            } else {
+                JOptionPane.showMessageDialog(null, "Xóa thất bại!!!");
+            }
+
+        } // Handle any errors that may have occurred.
+        catch (SQLException e) {
+            System.out.println("ket noi loi");
+            e.printStackTrace();
+        }
+
+    }
+
+//    public void displayFrom(int i) {
+//        Nhanvien nv = list.get(i);
 //        txtManv.setText(nv.getManv());
 //        txtTennv.setText(nv.getTennv());
 //        txtNgaysinh.setText(nv.getNgaySinh());
 //        txtDiachi.setText(nv.getDchi());
 //        boolean gt = nv.isPhai();
-//        txtDiachi.setText(nv.getLuong());
 //        if (gt == true) {
 //            rdoNam.setSelected(true);
 //        } else {
 //            rdoNu.setSelected(true);
 //        }
+//        txtLuong.setText(nv.getLuong()+"");
+//
+//        tblData.setRowSelectionInterval(i, i);
 //    }
 
     /**

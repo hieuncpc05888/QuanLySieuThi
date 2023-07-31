@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package qlysieuthi;
+package Class;
 
 /**
  *
- * @author baomt
+ * @author baott
  */
 public class Nhanvien {
     String Manv;
@@ -14,12 +14,12 @@ public class Nhanvien {
     String NgaySinh;
     String Dchi;
     boolean Phai;
-    String Luong;
+    double Luong;
 
     public Nhanvien() {
     }
 
-    public Nhanvien(String Manv, String Tennv, String NgaySinh, String Dchi, boolean Phai, String Luong) {
+    public Nhanvien(String Manv, String Tennv, String NgaySinh, String Dchi, boolean Phai, double Luong) {
         this.Manv = Manv;
         this.Tennv = Tennv;
         this.NgaySinh = NgaySinh;
@@ -68,12 +68,13 @@ public class Nhanvien {
         this.Phai = Phai;
     }
 
-    public String getLuong() {
+    public double getLuong() {
         return Luong;
     }
 
-    public void setLuong(String Luong) {
+    public void setLuong(double Luong) {
         this.Luong = Luong;
     }
 
+    
 }
