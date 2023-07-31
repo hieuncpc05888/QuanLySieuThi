@@ -4,11 +4,27 @@
  */
 package qlysieuthi;
 
+import Class.KhachHang;
+import Class.Nhanvien;
+import DatabaseHelper.DatabaseHelper;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author NGUYEN CHI HIEU
  */
 public class QLKhachHang extends javax.swing.JFrame {
+
+    List<KhachHang> listkh = new ArrayList<>();
+    int index;
 
     /**
      * Creates new form QLSieuThi
@@ -17,7 +33,7 @@ public class QLKhachHang extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Quan Ly Khach Hang");
-        
+        loadData();
     }
 
     /**
@@ -29,28 +45,32 @@ public class QLKhachHang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        txtMakh = new javax.swing.JTextField();
+        txtTenkh = new javax.swing.JTextField();
+        txtSDT = new javax.swing.JTextField();
+        btnThem = new javax.swing.JButton();
+        btnCapnhat = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDiachi = new javax.swing.JTextArea();
         btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblData = new javax.swing.JTable();
+        btnReset = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,29 +91,44 @@ public class QLKhachHang extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Số điện thoại");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 267, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 70, 213, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 110, 213, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 264, 213, -1));
+        getContentPane().add(txtMakh, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 70, 213, -1));
+        getContentPane().add(txtTenkh, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 110, 213, -1));
+        getContentPane().add(txtSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 264, 213, -1));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
-        jButton1.setText("Thêm");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 160, 110, -1));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
+        btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 160, 110, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
-        jButton2.setText("Cập Nhật");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 212, 110, -1));
+        btnCapnhat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
+        btnCapnhat.setText("Cập Nhật");
+        btnCapnhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapnhatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCapnhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 212, 110, -1));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
-        jButton3.setText("Xóa");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 264, 110, -1));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 264, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Email");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 308, 37, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 305, 213, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 305, 213, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-avatar.gif"))); // NOI18N
 
@@ -130,9 +165,9 @@ public class QLKhachHang extends javax.swing.JFrame {
         });
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 100, 30));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDiachi.setColumns(20);
+        txtDiachi.setRows(5);
+        jScrollPane1.setViewportView(txtDiachi);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 160, -1, -1));
 
@@ -145,7 +180,7 @@ public class QLKhachHang extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, 100, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -156,9 +191,22 @@ public class QLKhachHang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblData);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 369, -1, 211));
+
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 100, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/qly khach hang.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -168,7 +216,7 @@ public class QLKhachHang extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -176,6 +224,205 @@ public class QLKhachHang extends javax.swing.JFrame {
         f.show();
         this.hide();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+        if (check()) {
+            insertEmployee();
+        }
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
+        // TODO add your handling code here:
+        capNhat();
+    }//GEN-LAST:event_btnCapnhatActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+        int check = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa hay không");
+        if (check == 0) {
+            xoa();
+            reset();
+        }
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
+        // TODO add your handling code here:
+        displayFrom();
+    }//GEN-LAST:event_tblDataMouseClicked
+
+    public void insertEmployee() {
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "Insert into KHACHHANG values(?,?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(SQL);
+            st.setString(1, txtMakh.getText());
+            st.setString(2, txtTenkh.getText());
+            st.setString(3, txtDiachi.getText());
+            st.setString(4, txtSDT.getText());
+            st.setString(5, txtEmail.getText());
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Thêm thành công");
+            con.close();
+            loadData();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void loadData() {
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            System.out.println("Kết nối thành công");
+            String SQL = "select * from KHACHHANG";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            String[] columnNames = {"MAKH", "TENKH", "DCHI", "DIENTHOAI", "EMAIL"};
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+            while (rs.next()) {
+                model.addRow(new Object[]{rs.getString("MAKH"), rs.getString("TENKH"), rs.getString("DCHI"), rs.getString("DIENTHOAI"), rs.getString("EMAIL")});
+            }
+            tblData.setModel(model);
+        } catch (SQLException e) {
+            System.out.println("Kết nối lỗi");
+            e.printStackTrace();
+        }
+    }
+
+    public void xoa() {
+        Nhanvien emp = new Nhanvien();
+        emp.setManv(txtMakh.getText());
+        try {
+
+            Connection con = DatabaseHelper.connectDb();
+            System.out.println("ket noi thanh cong");
+            String sql = "delete from KHACHHANG where MAKH=?";
+
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setString(1, emp.getManv());
+            int rs = stmt.executeUpdate();
+            if (rs > 0) {
+                JOptionPane.showMessageDialog(null, "Xóa thanh công!!!");
+                loadData();
+            } else {
+                JOptionPane.showMessageDialog(null, "Xóa thất bại!!!");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ket noi loi");
+            e.printStackTrace();
+        }
+
+    }
+
+    public void displayFrom() {
+        int index = tblData.getSelectedRow();
+        KhachHang nv = new KhachHang();
+        txtMakh.setText(tblData.getValueAt(index, 0).toString());
+        txtTenkh.setText(tblData.getValueAt(index, 1).toString());
+        txtDiachi.setText(tblData.getValueAt(index, 2).toString());
+        txtSDT.setText(tblData.getValueAt(index, 3).toString());
+        txtEmail.setText(tblData.getValueAt(index, 4).toString());
+
+        txtMakh.setEditable(false);
+    }
+
+    public void capNhat() {
+        if (txtMakh.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Nhập Mã Khách Hàng");
+            txtMakh.requestFocus();
+            return;
+        }
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "Update KHACHHANG set TENKH = ?,DCHI = ?,DIENTHOAI = ?,EMAIL = ? where MAKH = ?";
+            PreparedStatement st = con.prepareStatement(SQL);
+            st.setString(1, txtTenkh.getText());
+            st.setString(2, txtDiachi.getText());
+            st.setString(3, txtSDT.getText());
+            st.setString(4, txtEmail.getText());
+            st.setString(5, txtMakh.getText());
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+            con.close();
+            loadData();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public boolean check() {
+        if (txtMakh.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã không được bỏ trống", "Chu y", 1);
+            txtMakh.requestFocus();
+            return false;
+        }
+//        String pName = this.txtManv.getText().trim();
+//        Iterator it = data.iterator();
+//        while (it.hasNext()) {
+//            Vector v = (Vector) it.next();
+//            String name = ((String) v.get(0)).trim();
+//            if (pName.equalsIgnoreCase(name)) {
+//                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
+//                this.txtManv.grabFocus();
+//                return false;
+//            }
+//        }
+        if (txtTenkh.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Tên không được bỏ trống", "Chu y", 1);
+            txtTenkh.requestFocus();
+            return false;
+        }
+        if (txtTenkh.getText().matches("^[^!-@]+$") == false) {
+            JOptionPane.showMessageDialog(this, "Tên không đúng định dạng ", "Chu y", 1);
+            txtTenkh.requestFocus();
+            return false;
+        }
+
+        if (txtDiachi.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Địa chỉ không được để trống ", "Chu y", 1);
+            txtDiachi.requestFocus();
+            return false;
+        }
+
+        if (txtSDT.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Số điện thoại không được để trống", "Chu y", 1);
+            txtSDT.requestFocus();
+            return false;
+        }
+        if (txtSDT.getText().matches("^0[0-9]{9}$") == false) {
+            JOptionPane.showMessageDialog(this, "Số điện thoại không đúng định dạng(VD:0123456789) ", "Chu y", 1);
+            txtSDT.requestFocus();
+            return false;
+        }
+        if (txtEmail.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Email không được để trống ", "Chu y", 1);
+            txtEmail.requestFocus();
+            return false;
+        }
+        if (txtEmail.getText().matches("^[a-zA-Z]{1}[0-9a-zA-Z]+@[0-9a-zA-Z]+\\.\\w+.\\w+") == false) {
+            JOptionPane.showMessageDialog(this, "Email không đúng định dạng(VD:bao@fpt.edu.vn hoặc bao@gmail.com)", "Chu y", 1);
+            txtEmail.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    public void reset() {
+        txtMakh.setText("");
+        txtDiachi.setText("");
+        txtEmail.setText("");
+        txtSDT.setText("");
+        txtTenkh.setText("");
+        txtMakh.setEditable(true);
+
+    }
 
     /**
      * @param args the command line arguments
@@ -221,10 +468,12 @@ public class QLKhachHang extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCapnhat;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -236,11 +485,11 @@ public class QLKhachHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable tblData;
+    private javax.swing.JTextArea txtDiachi;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtMakh;
+    private javax.swing.JTextField txtSDT;
+    private javax.swing.JTextField txtTenkh;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,7 +14,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +28,7 @@ public class QLNhanVien extends javax.swing.JFrame {
 
     List<Nhanvien> list = new ArrayList<>();
     int index;
+    Vector data = new Vector();
 
     /**
      * Creates new form QLSieuThi
@@ -48,6 +51,7 @@ public class QLNhanVien extends javax.swing.JFrame {
     private void initComponents() {
 
         btgGioitinh = new javax.swing.ButtonGroup();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -72,8 +76,11 @@ public class QLNhanVien extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblData = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -225,13 +232,21 @@ public class QLNhanVien extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 560, 197));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/ky-nang-quan-ly-nhan-vien.jpg"))); // NOI18N
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 350));
-
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/Background-xanh-duong-nhat.jpeg"))); // NOI18N
         jLabel10.setText("jLabel10");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 350, 570, 270));
+
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 110, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/ky-nang-quan-ly-nhan-vien.jpg"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,22 +266,33 @@ public class QLNhanVien extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        insertEmployee();
+        if (check()) {
+            insertEmployee();
+        }
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
         // TODO add your handling code here:
+        capNhat();
     }//GEN-LAST:event_btnCapnhatActionPerformed
 
     private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
-
         displayFrom();
     }//GEN-LAST:event_tblDataMouseClicked
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        xoa();
+        int check = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa hay không");
+        if (check == 0) {
+            xoa();
+            reset();
+        }
     }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_btnResetActionPerformed
 
     public void insertEmployee() {
         try {
@@ -365,6 +391,103 @@ public class QLNhanVien extends javax.swing.JFrame {
                 btgGioitinh.clearSelection();
         }
         txtLuong.setText(tblData.getValueAt(index, 5).toString());
+        txtManv.setEditable(false);
+    }
+
+    public void capNhat() {
+        if (txtManv.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Nhập Mã Nhân Viên");
+            txtManv.requestFocus();
+            return;
+        }
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "Update NHANVIEN set TENNV = ?,NGSINH = ?,DCHI = ?,PHAI = ?,LUONG = ? where MANV = ?";
+            PreparedStatement st = con.prepareStatement(SQL);
+            st.setString(1, txtTennv.getText());
+            st.setString(2, txtNgaysinh.getText());
+            st.setString(3, txtDiachi.getText());
+            boolean gt;
+            if (rdoNam.isSelected()) {
+                gt = true;
+            } else {
+                gt = false;
+            }
+            st.setBoolean(4, gt);
+            st.setDouble(5, Double.parseDouble(txtLuong.getText()));
+            st.setString(6, txtManv.getText());
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+            con.close();
+            loadData();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public boolean check() {
+        if (txtManv.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã không được bỏ trống", "Chu y", 1);
+            txtManv.requestFocus();
+            return false;
+        }
+//        String pName = this.txtManv.getText().trim();
+//        Iterator it = data.iterator();
+//        while (it.hasNext()) {
+//            Vector v = (Vector) it.next();
+//            String name = ((String) v.get(0)).trim();
+//            if (pName.equalsIgnoreCase(name)) {
+//                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
+//                this.txtManv.grabFocus();
+//                return false;
+//            }
+//        }
+        if (txtTennv.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Tên không được bỏ trống", "Chu y", 1);
+            txtTennv.requestFocus();
+            return false;
+        }
+        if (txtTennv.getText().matches("^[^!-@]+$") == false) {
+            JOptionPane.showMessageDialog(this, "Tên không đúng định dạng ", "Chu y", 1);
+            txtTennv.requestFocus();
+            return false;
+        }
+
+        if (txtNgaysinh.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Ngày sinh không được để trống ", "Chu y", 1);
+            txtNgaysinh.requestFocus();
+            return false;
+        }
+        if (txtNgaysinh.getText().matches("^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))") == false) {
+            JOptionPane.showMessageDialog(this, "Ngày sinh không đúng định dạng (yyyy-MM-dd)", "Chu y", 1);
+            txtNgaysinh.requestFocus();
+            return false;
+        }
+        if (txtDiachi.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Địa chỉ không được để trống ", "Chu y", 1);
+            txtDiachi.requestFocus();
+            return false;
+        }
+        if (!rdoNam.isSelected() && !rdoNu.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Chưa chọn giới tính");
+            return false;
+        }
+        if (txtLuong.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Lương không được để trống ", "Chu y", 1);
+            txtLuong.requestFocus();
+            return false;
+        }
+        return true;
+    }
+    
+    public void reset(){
+        txtManv.setText("");
+        txtDiachi.setText("");
+        txtLuong.setText("");
+        txtNgaysinh.setText("");
+        txtTennv.setText("");
+        txtManv.setEditable(true);
+        btgGioitinh.clearSelection();
     }
 
     /**
@@ -408,8 +531,10 @@ public class QLNhanVien extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCapnhat;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
