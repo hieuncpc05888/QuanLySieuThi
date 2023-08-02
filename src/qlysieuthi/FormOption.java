@@ -33,22 +33,20 @@ public class FormOption extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnQlnhanvien = new javax.swing.JButton();
+        btnQlkhachhang = new javax.swing.JButton();
+        btnQlhoadon = new javax.swing.JButton();
+        btnQlhanghoa = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        mnNhanvien = new javax.swing.JCheckBoxMenuItem();
-        mnKhachhag = new javax.swing.JCheckBoxMenuItem();
-        mnHoadon = new javax.swing.JCheckBoxMenuItem();
-        mnHanghoa = new javax.swing.JCheckBoxMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        mnExit = new javax.swing.JMenuItem();
-        mnBack = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 51, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
@@ -65,120 +63,99 @@ public class FormOption extends javax.swing.JFrame {
         jLabel1.setText(" Ấn Back để trở về giao diện login!!!");
         jPanel1.add(jLabel1);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 510, 60));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 660, 50));
+
+        btnQlnhanvien.setText("Quản Lý Nhân Viên");
+        btnQlnhanvien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQlnhanvienActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnQlnhanvien, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+
+        btnQlkhachhang.setText("Quản Lý Khách Hàng");
+        btnQlkhachhang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQlkhachhangActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnQlkhachhang, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+
+        btnQlhoadon.setText("Quản Lý Hóa Đơn");
+        btnQlhoadon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQlhoadonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnQlhoadon, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, -1, -1));
+
+        btnQlhanghoa.setText("Quản Lý Hàng Hóa");
+        btnQlhanghoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQlhanghoaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnQlhanghoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 277, -1, 30));
+
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
+        btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 277, -1, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/MENUOPTION2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 650, 320));
-
-        jMenu1.setText("Option");
-
-        mnNhanvien.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnNhanvien.setForeground(new java.awt.Color(255, 0, 51));
-        mnNhanvien.setSelected(true);
-        mnNhanvien.setText("Quản lý nhân viên");
-        mnNhanvien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnNhanvienActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnNhanvien);
-
-        mnKhachhag.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnKhachhag.setForeground(new java.awt.Color(255, 0, 51));
-        mnKhachhag.setSelected(true);
-        mnKhachhag.setText("Quản lý khách hàng");
-        mnKhachhag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnKhachhagActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnKhachhag);
-
-        mnHoadon.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnHoadon.setForeground(new java.awt.Color(255, 0, 0));
-        mnHoadon.setSelected(true);
-        mnHoadon.setText("Quản lý hóa đơn");
-        mnHoadon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnHoadonActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnHoadon);
-
-        mnHanghoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        mnHanghoa.setForeground(new java.awt.Color(255, 0, 51));
-        mnHanghoa.setSelected(true);
-        mnHanghoa.setText("Quản lý hàng hóa");
-        mnHanghoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnHanghoaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(mnHanghoa);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Exit");
-
-        mnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
-        mnExit.setText("Exit");
-        mnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnExitActionPerformed(evt);
-            }
-        });
-        jMenu2.add(mnExit);
-
-        mnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
-        mnBack.setText("Back Login");
-        mnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnBackActionPerformed(evt);
-            }
-        });
-        jMenu2.add(mnBack);
-
-        jMenuBar1.add(jMenu2);
-
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 660, 330));
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_mnExitActionPerformed
+    private void btnQlnhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQlnhanvienActionPerformed
+        QLNhanVien NV = new QLNhanVien();
+        NV.show();
+        this.hide();
+    }//GEN-LAST:event_btnQlnhanvienActionPerformed
 
-    private void mnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBackActionPerformed
+    private void btnQlkhachhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQlkhachhangActionPerformed
+       QLKhachHang KH = new QLKhachHang();
+        KH.show();
+        this.hide();
+    }//GEN-LAST:event_btnQlkhachhangActionPerformed
+
+    private void btnQlhoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQlhoadonActionPerformed
+       QLHoaDon HD = new QLHoaDon();
+        HD.show();
+        this.hide();
+    }//GEN-LAST:event_btnQlhoadonActionPerformed
+
+    private void btnQlhanghoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQlhanghoaActionPerformed
+       QLHangHoavsKho HH = new QLHangHoavsKho();
+        HH.show();
+        this.hide();
+    }//GEN-LAST:event_btnQlhanghoaActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         LoginForm lg = new LoginForm();
         lg.show();
         this.hide();
-    }//GEN-LAST:event_mnBackActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void mnHoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHoadonActionPerformed
-        QLHoaDon hd = new QLHoaDon();
-        hd.show();
-        this.hide();
-    }//GEN-LAST:event_mnHoadonActionPerformed
-
-    private void mnNhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnNhanvienActionPerformed
-        QLNhanVien nv = new QLNhanVien();
-        nv.show();
-        this.hide();
-    }//GEN-LAST:event_mnNhanvienActionPerformed
-
-    private void mnKhachhagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnKhachhagActionPerformed
-        QLKhachHang kh = new QLKhachHang();
-        kh.show();
-        this.hide();
-    }//GEN-LAST:event_mnKhachhagActionPerformed
-
-    private void mnHanghoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnHanghoaActionPerformed
-        QLHangHoavsKho hh = new QLHangHoavsKho();
-        hh.show();
-        this.hide();
-    }//GEN-LAST:event_mnHanghoaActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,19 +193,17 @@ public class FormOption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnQlhanghoa;
+    private javax.swing.JButton btnQlhoadon;
+    private javax.swing.JButton btnQlkhachhang;
+    private javax.swing.JButton btnQlnhanvien;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuItem mnBack;
-    private javax.swing.JMenuItem mnExit;
-    private javax.swing.JCheckBoxMenuItem mnHanghoa;
-    private javax.swing.JCheckBoxMenuItem mnHoadon;
-    private javax.swing.JCheckBoxMenuItem mnKhachhag;
-    private javax.swing.JCheckBoxMenuItem mnNhanvien;
     // End of variables declaration//GEN-END:variables
 }
