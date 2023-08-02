@@ -431,7 +431,7 @@ public class QLNhanVien extends javax.swing.JFrame {
             txtManv.requestFocus();
             return false;
         }
-//        String pName = this.txtManv.getText().trim();
+//      String pName = this.txtManv.getText().trim();
 //        Iterator it = data.iterator();
 //        while (it.hasNext()) {
 //            Vector v = (Vector) it.next();

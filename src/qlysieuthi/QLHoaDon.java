@@ -4,11 +4,26 @@
  */
 package qlysieuthi;
 
+import Class.Hoadon;
+import Class.Nhanvien;
+import DatabaseHelper.DatabaseHelper;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author NGUYEN CHI HIEU
  */
 public class QLHoaDon extends javax.swing.JFrame {
+
+    List<Hoadon> list = new ArrayList<>();
 
     /**
      * Creates new form QLSieuThi
@@ -17,7 +32,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Quan Ly Hoa Don");
-       
+        loadData();
     }
 
     /**
@@ -33,31 +48,31 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        txtMahd = new javax.swing.JTextField();
+        txtMahh = new javax.swing.JTextField();
+        txtSoluong = new javax.swing.JTextField();
+        btnThem = new javax.swing.JButton();
+        btnCapnhat = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtNgay = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtDongia = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtMakh = new javax.swing.JTextField();
         btnExit = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtManv = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtThanhTien = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel11 = new javax.swing.JLabel();
+        tblData = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
+        btnReset = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,32 +91,33 @@ public class QLHoaDon extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Đơn Giá");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 70, 213, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 110, 213, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 150, 213, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        getContentPane().add(txtMahd, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 70, 213, -1));
+        getContentPane().add(txtMahh, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 110, 213, -1));
+        getContentPane().add(txtSoluong, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 150, 213, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
-        jButton1.setText("Thêm");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
+        btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnThemActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 160, -1));
+        getContentPane().add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 160, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
-        jButton2.setText("Cập Nhật");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 160, -1));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
-        jButton3.setText("Tính thành tiền");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 283, 160, 30));
+        btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
+        btnCapnhat.setText("Cập Nhật");
+        btnCapnhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapnhatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCapnhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 160, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("Ngày Lập Hóa Đơn");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 193, 213, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 110, -1));
+        getContentPane().add(txtNgay, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 213, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-avatar.gif"))); // NOI18N
 
@@ -128,17 +144,17 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel7.setText("Mã NV");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 50, -1));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtDongia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtDongiaActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 233, 213, -1));
+        getContentPane().add(txtDongia, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 213, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("Mã KH");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 40, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 213, -1));
+        getContentPane().add(txtMakh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 213, -1));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
         btnExit.setText("Exit");
@@ -153,12 +169,14 @@ public class QLHoaDon extends javax.swing.JFrame {
         jLabel9.setText("Mã Hàng Hóa");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 90, -1));
         getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 150, 213, -1));
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, -1));
+        getContentPane().add(txtManv, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Thành tiền");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 356, 64, -1));
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 353, 213, -1));
+
+        txtThanhTien.setEditable(false);
+        getContentPane().add(txtThanhTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 353, 213, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
         btnBack.setText("Back");
@@ -169,7 +187,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, 110, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -180,28 +198,43 @@ public class QLHoaDon extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblData);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 419, -1, 205));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
-        jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 470));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/Background-xanh-duong-nhat.jpeg"))); // NOI18N
         jLabel12.setText("jLabel12");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 610, 270));
 
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 160, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
+        jLabel11.setText("jLabel11");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 470));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtDongiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDongiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtDongiaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        if (check()) {
+            insertEmployee();
+        }
+    }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
@@ -212,6 +245,174 @@ public class QLHoaDon extends javax.swing.JFrame {
         f.show();
         this.hide();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
+        // TODO add your handling code here:        
+        capNhat();
+    }//GEN-LAST:event_btnCapnhatActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        reset();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
+        // TODO add your handling code here:
+        displayFrom();
+    }//GEN-LAST:event_tblDataMouseClicked
+
+    public void insertEmployee() {
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "Insert into HOADON values(?,?,?,?,?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(SQL);
+            st.setString(1, txtMahd.getText());
+            st.setString(2, txtMahh.getText());
+            st.setInt(3, Integer.parseInt(txtSoluong.getText()));
+            st.setDouble(4, Double.parseDouble(txtDongia.getText()));
+            st.setString(5, txtNgay.getText());
+            st.setString(6, txtManv.getText());
+            st.setString(7, txtMakh.getText());
+            double thanhtien = (Integer.parseInt(txtSoluong.getText())) * (Double.parseDouble(txtDongia.getText()));
+            st.setDouble(8, thanhtien);
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Thêm thành công");
+            con.close();
+            loadData();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void loadData() {
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "select * from HOADON";
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+            String[] columnNames = {"MAHD", "MAHH", "SOLUONG", "DONGIA", "NGAYLAPHOADON", "MANV", "MAKH", "THANHTIEN"};
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+            while (rs.next()) {
+
+                model.addRow(new Object[]{rs.getString("MAHD"), rs.getString("MAHH"), rs.getInt("SOLUONG"), rs.getDouble("DONGIA"), rs.getDate("NGAYLAPHOADON"), rs.getString("MANV"), rs.getString("MAKH"), rs.getDouble("THANHTIEN")});
+            }
+            tblData.setModel(model);
+        } catch (SQLException e) {
+            System.out.println("Kết nối lỗi");
+            e.printStackTrace();
+        }
+    }
+
+    public void displayFrom() {
+        int index = tblData.getSelectedRow();
+        Hoadon nv = new Hoadon();
+        txtMahd.setText(tblData.getValueAt(index, 0).toString());
+        txtMahh.setText(tblData.getValueAt(index, 1).toString());
+        txtSoluong.setText(tblData.getValueAt(index, 2).toString());
+        txtDongia.setText(tblData.getValueAt(index, 3).toString());
+        txtNgay.setText(tblData.getValueAt(index, 4).toString());
+        txtManv.setText(tblData.getValueAt(index, 5).toString());
+        txtMakh.setText(tblData.getValueAt(index, 6).toString());
+        txtThanhTien.setText(tblData.getValueAt(index, 7).toString());
+
+        txtMahd.setEditable(false);
+    }
+
+    public void capNhat() {
+        if (txtMahd.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Nhập Mã Hóa Đơn");
+            txtMahd.requestFocus();
+            return;
+        }
+        try {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "Update HOADON set MAHH = ?, SOLUONG = ?,DONGIA = ?,NGAYLAPHOADON = ?, MANV = ?, MAKH = ?, THANHTIEN = ? where MAHD = ?";
+            PreparedStatement st = con.prepareStatement(SQL);
+            st.setString(1, txtMahh.getText());
+            st.setInt(2, Integer.parseInt(txtSoluong.getText()));
+            st.setDouble(3, Double.parseDouble(txtDongia.getText()));
+            st.setString(4, txtNgay.getText());
+            st.setString(5, txtManv.getText());
+            st.setString(6, txtMakh.getText());
+            double thanhtien = (Integer.parseInt(txtSoluong.getText())) * (Double.parseDouble(txtDongia.getText()));
+            st.setDouble(7, thanhtien);
+            st.setString(8, txtMahd.getText());
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+            con.close();
+            loadData();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public boolean check() {
+        if (txtMahd.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã hóa đơn không được bỏ trống", "Chu y", 1);
+            txtMahd.requestFocus();
+            return false;
+        }
+        if (txtMahh.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã hàng hóa không được bỏ trống", "Chu y", 1);
+            txtMahh.requestFocus();
+            return false;
+        }
+        if (txtSoluong.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã số lượng không được bỏ trống", "Chu y", 1);
+            txtSoluong.requestFocus();
+            return false;
+        }
+        if (txtDongia.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã đơn giá không được bỏ trống", "Chu y", 1);
+            txtDongia.requestFocus();
+            return false;
+        }
+//      String pName = this.txtManv.getText().trim();
+//        Iterator it = data.iterator();
+//        while (it.hasNext()) {
+//            Vector v = (Vector) it.next();
+//            String name = ((String) v.get(0)).trim();
+//            if (pName.equalsIgnoreCase(name)) {
+//                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
+//                this.txtManv.grabFocus();
+//                return false;
+//            }
+//        }
+
+        if (txtNgay.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Ngày sinh không được để trống ", "Chu y", 1);
+            txtNgay.requestFocus();
+            return false;
+        }
+        if (txtNgay.getText().matches("^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))") == false) {
+            JOptionPane.showMessageDialog(this, "Ngày sinh không đúng định dạng (yyyy-MM-dd)", "Chu y", 1);
+            txtNgay.requestFocus();
+            return false;
+        }
+        if (txtManv.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã nhân viên không được bỏ trống", "Chu y", 1);
+            txtManv.requestFocus();
+            return false;
+        }
+        if (txtMakh.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Mã khách hàng không được bỏ trống", "Chu y", 1);
+            txtMakh.requestFocus();
+            return false;
+        }
+        return true;
+    }
+
+    public void reset() {
+        txtManv.setText("");
+        txtMahd.setText("");
+        txtMahh.setText("");
+        txtNgay.setText("");
+        txtSoluong.setText("");
+        txtDongia.setText("");
+        txtMakh.setText("");
+        txtThanhTien.setText("");
+        txtMahd.setEditable(true);
+    }
 
     /**
      * @param args the command line arguments
@@ -253,10 +454,10 @@ public class QLHoaDon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCapnhat;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnThem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -271,15 +472,15 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable tblData;
+    private javax.swing.JTextField txtDongia;
+    private javax.swing.JTextField txtMahd;
+    private javax.swing.JTextField txtMahh;
+    private javax.swing.JTextField txtMakh;
+    private javax.swing.JTextField txtManv;
+    private javax.swing.JTextField txtNgay;
+    private javax.swing.JTextField txtSoluong;
+    private javax.swing.JTextField txtThanhTien;
     // End of variables declaration//GEN-END:variables
 }
