@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,7 +33,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Quan Ly Hang Hoa");
-
+        loadData();
     }
 
     /**
@@ -104,10 +106,20 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
 
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 117, -1));
 
         btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         btnCapnhat.setText("Cập Nhật");
+        btnCapnhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapnhatActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCapnhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 117, -1));
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
@@ -164,11 +176,16 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblData);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, 190));
 
-        cboLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M001", "M002", "M003", "M004" }));
+        cboLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kho đông lạnh", "Kho sản phẩm", "Kho trung chuyển", " " }));
         getContentPane().add(cboLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 239, 205, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/kho.jpg"))); // NOI18N
@@ -188,23 +205,41 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        // TODO add your handling code here:
+//       try {
+//            if (check()) {
+//                insertEmployee();
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(QLNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        insertEmployee();
+    
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
+        // TODO add your handling code here:
+        displayFrom();
+    }//GEN-LAST:event_tblDataMouseClicked
+
+    private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
+        // TODO add your handling code here:
+        capNhat();
+    }//GEN-LAST:event_btnCapnhatActionPerformed
+
     public void insertEmployee() {
         try {
             Connection con = DatabaseHelper.connectDb();
-            String SQL = "Insert into NHANVIEN values(?,?,?,?,?,?)";
+            String SQL = "Insert into HANGHOA values(?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(SQL);
-            st.setString(1, txtManv.getText());
-            st.setString(2, txtTennv.getText());
-            st.setString(3, txtNgaysinh.getText());
-            st.setString(4, txtDiachi.getText());
-            boolean gt;
-            if (rdoNam.isSelected()) {
-                gt = true;
-            } else {
-                gt = false;
-            }
-            st.setBoolean(5, gt);
-            st.setDouble(6, Double.parseDouble(txtLuong.getText()));
+            st.setString(1, txtMahh.getText());
+            st.setString(2, txtTen.getText());
+            st.setString(3, txtMakhuvuc.getText());
+            st.setString(4, txtMakho.getText());
+            String loai = (String) cboLoai.getSelectedItem().toString();
+            st.setString(5, loai);
+    
             st.executeUpdate();
             JOptionPane.showMessageDialog(this, "Thêm thành công");
             con.close();
@@ -217,21 +252,13 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
     public void loadData() {
         try {
             Connection con = DatabaseHelper.connectDb();
-            System.out.println("Kết nối thành công");
-            String SQL = "select * from NHANVIEN";
+            String SQL = "select * from HANGHOA";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
-            String[] columnNames = {"MANV", "TENNV", "NGSINH", "DCHI", "PHAI", "LUONG"};
+            String[] columnNames = {"MAHH", "TENHH", "MAKV", "MAKHO", "LOAIKHO"};
             DefaultTableModel model = new DefaultTableModel(columnNames, 0);
             while (rs.next()) {
-                int Phai = rs.getInt("Phai");
-                String gt = "";
-                if (Phai == 1) {
-                    gt = "Nam";
-                } else {
-                    gt = "Nu";
-                }
-                model.addRow(new Object[]{rs.getString("MANV"), rs.getString("TENNV"), rs.getDate("NGSINH"), rs.getString("DCHI"), gt, rs.getDouble("Luong")});
+                model.addRow(new Object[]{rs.getString("MAHH"), rs.getString("TENHH"), rs.getString("MAKV"), rs.getString("MAKHO"), rs.getString("LOAIKHO")});
             }
             tblData.setModel(model);
         } catch (SQLException e) {
@@ -239,19 +266,19 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
+//
     public void xoa() {
-        Nhanvien emp = new Nhanvien();
-        emp.setManv(txtManv.getText());
+        HangVaKho emp = new HangVaKho();
+        emp.setMahh(txtMahh.getText());
         try {
 
             Connection con = DatabaseHelper.connectDb();
             System.out.println("ket noi thanh cong");
-            String sql = "delete from NHANVIEN where Manv=?";
+            String sql = "delete from HANGHOA where MAHH=?";
 
             PreparedStatement stmt = con.prepareStatement(sql);
 
-            stmt.setString(1, emp.getManv());
+            stmt.setString(1, emp.getMahh());
             int rs = stmt.executeUpdate();
             if (rs > 0) {
                 JOptionPane.showMessageDialog(null, "Xóa thanh công!!!");
@@ -269,47 +296,31 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
 
     public void displayFrom() {
         int index = tblData.getSelectedRow();
-        Nhanvien nv = new Nhanvien();
-        txtManv.setText(tblData.getValueAt(index, 0).toString());
-        txtTennv.setText(tblData.getValueAt(index, 1).toString());
-        txtNgaysinh.setText(tblData.getValueAt(index, 2).toString());
-        txtDiachi.setText(tblData.getValueAt(index, 3).toString());
-        switch (tblData.getValueAt(index, 4).toString()) {
-            case "Nam":
-                rdoNam.setSelected(true);
-                break;
-            case "Nu":
-                rdoNu.setSelected(true);
-                break;
-            default:
-                btgGioitinh.clearSelection();
-        }
-        txtLuong.setText(tblData.getValueAt(index, 5).toString());
-        txtManv.setEditable(false);
+        
+        txtMahh.setText(tblData.getValueAt(index, 0).toString());
+        txtTen.setText(tblData.getValueAt(index, 1).toString());
+        txtMakhuvuc.setText(tblData.getValueAt(index, 2).toString());
+        txtMakho.setText(tblData.getValueAt(index, 3).toString());
+        cboLoai.setSelectedItem(tblData.getValueAt(index, 4).toString());
+        txtMahh.setEditable(false);
     }
 
     public void capNhat() {
-        if (txtManv.getText().equals("")) {
+        if (txtMahh.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Nhập Mã Nhân Viên");
-            txtManv.requestFocus();
+            txtMahh.requestFocus();
             return;
         }
         try {
             Connection con = DatabaseHelper.connectDb();
-            String SQL = "Update NHANVIEN set TENNV = ?,NGSINH = ?,DCHI = ?,PHAI = ?,LUONG = ? where MANV = ?";
+            String SQL = "Update HANGHOA set TENHH = ?,MAKV = ?,MAKHO = ?,LOAIKHO = ? where MAHH = ?";
             PreparedStatement st = con.prepareStatement(SQL);
-            st.setString(1, txtTennv.getText());
-            st.setString(2, txtNgaysinh.getText());
-            st.setString(3, txtDiachi.getText());
-            boolean gt;
-            if (rdoNam.isSelected()) {
-                gt = true;
-            } else {
-                gt = false;
-            }
-            st.setBoolean(4, gt);
-            st.setDouble(5, Double.parseDouble(txtLuong.getText()));
-            st.setString(6, txtManv.getText());
+            st.setString(1, txtTen.getText());
+            st.setString(2, txtMakhuvuc.getText());
+            st.setString(3, txtMakho.getText());
+            String loai = (String) cboLoai.getSelectedItem().toString();
+            st.setString(4, loai);
+            st.setString(5, txtMahh.getText());
             st.executeUpdate();
             JOptionPane.showMessageDialog(this, "Cập nhật thành công");
             con.close();
@@ -319,70 +330,70 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         }
     }
 
-    public boolean check() {
-        if (txtManv.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Mã không được bỏ trống", "Chu y", 1);
-            txtManv.requestFocus();
-            return false;
-        }
-//      String pName = this.txtManv.getText().trim();
-//        Iterator it = data.iterator();
-//        while (it.hasNext()) {
-//            Vector v = (Vector) it.next();
-//            String name = ((String) v.get(0)).trim();
-//            if (pName.equalsIgnoreCase(name)) {
-//                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
-//                this.txtManv.grabFocus();
-//                return false;
-//            }
+//    public boolean check() {
+//        if (txtManv.getText().equals("")) {
+//            JOptionPane.showMessageDialog(this, "Mã không được bỏ trống", "Chu y", 1);
+//            txtManv.requestFocus();
+//            return false;
 //        }
-        if (txtTennv.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Tên không được bỏ trống", "Chu y", 1);
-            txtTennv.requestFocus();
-            return false;
-        }
-        if (txtTennv.getText().matches("^[^!-@]+$") == false) {
-            JOptionPane.showMessageDialog(this, "Tên không đúng định dạng ", "Chu y", 1);
-            txtTennv.requestFocus();
-            return false;
-        }
+////      String pName = this.txtManv.getText().trim();
+////        Iterator it = data.iterator();
+////        while (it.hasNext()) {
+////            Vector v = (Vector) it.next();
+////            String name = ((String) v.get(0)).trim();
+////            if (pName.equalsIgnoreCase(name)) {
+////                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
+////                this.txtManv.grabFocus();
+////                return false;
+////            }
+////        }
+//        if (txtTennv.getText().equals("")) {
+//            JOptionPane.showMessageDialog(this, "Tên không được bỏ trống", "Chu y", 1);
+//            txtTennv.requestFocus();
+//            return false;
+//        }
+//        if (txtTennv.getText().matches("^[^!-@]+$") == false) {
+//            JOptionPane.showMessageDialog(this, "Tên không đúng định dạng ", "Chu y", 1);
+//            txtTennv.requestFocus();
+//            return false;
+//        }
+//
+//        if (txtNgaysinh.getText().equals("")) {
+//            JOptionPane.showMessageDialog(this, "Ngày sinh không được để trống ", "Chu y", 1);
+//            txtNgaysinh.requestFocus();
+//            return false;
+//        }
+//        if (txtNgaysinh.getText().matches("^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))") == false) {
+//            JOptionPane.showMessageDialog(this, "Ngày sinh không đúng định dạng (yyyy-MM-dd)", "Chu y", 1);
+//            txtNgaysinh.requestFocus();
+//            return false;
+//        }
+//        if (txtDiachi.getText().equals("")) {
+//            JOptionPane.showMessageDialog(this, "Địa chỉ không được để trống ", "Chu y", 1);
+//            txtDiachi.requestFocus();
+//            return false;
+//        }
+//        if (!rdoNam.isSelected() && !rdoNu.isSelected()) {
+//            JOptionPane.showMessageDialog(this, "Chưa chọn giới tính");
+//            return false;
+//        }
+//        if (txtLuong.getText().equals("")) {
+//            JOptionPane.showMessageDialog(this, "Lương không được để trống ", "Chu y", 1);
+//            txtLuong.requestFocus();
+//            return false;
+//        }
+//        return true;
+//    }
 
-        if (txtNgaysinh.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Ngày sinh không được để trống ", "Chu y", 1);
-            txtNgaysinh.requestFocus();
-            return false;
-        }
-        if (txtNgaysinh.getText().matches("^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))") == false) {
-            JOptionPane.showMessageDialog(this, "Ngày sinh không đúng định dạng (yyyy-MM-dd)", "Chu y", 1);
-            txtNgaysinh.requestFocus();
-            return false;
-        }
-        if (txtDiachi.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Địa chỉ không được để trống ", "Chu y", 1);
-            txtDiachi.requestFocus();
-            return false;
-        }
-        if (!rdoNam.isSelected() && !rdoNu.isSelected()) {
-            JOptionPane.showMessageDialog(this, "Chưa chọn giới tính");
-            return false;
-        }
-        if (txtLuong.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Lương không được để trống ", "Chu y", 1);
-            txtLuong.requestFocus();
-            return false;
-        }
-        return true;
-    }
-
-    public void reset() {
-        txtManv.setText("");
-        txtDiachi.setText("");
-        txtLuong.setText("");
-        txtNgaysinh.setText("");
-        txtTennv.setText("");
-        txtManv.setEditable(true);
-        btgGioitinh.clearSelection();
-    }
+//    public void reset() {
+//        txtManv.setText("");
+//        txtDiachi.setText("");
+//        txtLuong.setText("");
+//        txtNgaysinh.setText("");
+//        txtTennv.setText("");
+//        txtManv.setEditable(true);
+//        btgGioitinh.clearSelection();
+//    }
 
     /**
      * @param args the command line arguments
