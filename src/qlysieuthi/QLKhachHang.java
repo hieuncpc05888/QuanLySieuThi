@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -226,9 +228,13 @@ public class QLKhachHang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        // TODO add your handling code here:
-        if (check()) {
-            insertEmployee();
+        try {
+            // TODO add your handling code here:
+            if (check()) {
+                insertEmployee();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QLKhachHang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -357,23 +363,26 @@ public class QLKhachHang extends javax.swing.JFrame {
         }
     }
 
-    public boolean check() {
+    public boolean check() throws SQLException {
         if (txtMakh.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Mã không được bỏ trống", "Chu y", 1);
             txtMakh.requestFocus();
             return false;
+        } else {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "select * from KHACHHANG where MAKH=?";
+            PreparedStatement pr = con.prepareStatement(SQL);
+            pr.setString(1, txtMakh.getText());
+            ResultSet rs = pr.executeQuery();
+
+            if (rs.isBeforeFirst() == false) {
+                //chưa có mã
+                pr.execute();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Mã khách hàng đã tồn tại");
+            }
+
         }
-//        String pName = this.txtManv.getText().trim();
-//        Iterator it = data.iterator();
-//        while (it.hasNext()) {
-//            Vector v = (Vector) it.next();
-//            String name = ((String) v.get(0)).trim();
-//            if (pName.equalsIgnoreCase(name)) {
-//                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
-//                this.txtManv.grabFocus();
-//                return false;
-//            }
-//        }
         if (txtTenkh.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Tên không được bỏ trống", "Chu y", 1);
             txtTenkh.requestFocus();
@@ -397,7 +406,7 @@ public class QLKhachHang extends javax.swing.JFrame {
             return false;
         }
         if (txtSDT.getText().matches("^0[0-9]{9}$") == false) {
-            JOptionPane.showMessageDialog(this, "Số điện thoại không đúng định dạng(VD:0123456789) ", "Chu y", 1);
+            JOptionPane.showMessageDialog(this, "Số điện thoại phải đủ 10 số và bắt đầu bằng 0", "Chu y", 1);
             txtSDT.requestFocus();
             return false;
         }

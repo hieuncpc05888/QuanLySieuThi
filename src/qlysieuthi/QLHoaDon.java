@@ -4,6 +4,7 @@
  */
 package qlysieuthi;
 
+import Class.HangVaKho;
 import Class.Hoadon;
 import Class.Nhanvien;
 import DatabaseHelper.DatabaseHelper;
@@ -14,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -72,6 +75,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         tblData = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -217,7 +221,15 @@ public class QLHoaDon extends javax.swing.JFrame {
                 btnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 160, -1));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 160, -1));
+
+        btnXoa.setText("Xóa");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 160, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
         jLabel11.setText("jLabel11");
@@ -231,8 +243,12 @@ public class QLHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDongiaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        if (check()) {
-            insertEmployee();
+        try {
+            if (check()) {
+                insertEmployee();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QLHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -247,7 +263,6 @@ public class QLHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapnhatActionPerformed
-        // TODO add your handling code here:        
         capNhat();
     }//GEN-LAST:event_btnCapnhatActionPerformed
 
@@ -260,6 +275,15 @@ public class QLHoaDon extends javax.swing.JFrame {
         // TODO add your handling code here:
         displayFrom();
     }//GEN-LAST:event_tblDataMouseClicked
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+        int check = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa hay không");
+        if (check == 0) {
+            xoa();
+            reset();
+        }
+    }//GEN-LAST:event_btnXoaActionPerformed
 
     public void insertEmployee() {
         try {
@@ -346,46 +370,64 @@ public class QLHoaDon extends javax.swing.JFrame {
         }
     }
 
-    public boolean check() {
+    public boolean check() throws SQLException {
         if (txtMahd.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Mã hóa đơn không được bỏ trống", "Chu y", 1);
             txtMahd.requestFocus();
             return false;
+        } else {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "select * from HOADON where MAHD=?";
+            PreparedStatement pr = con.prepareStatement(SQL);
+            pr.setString(1, txtMahd.getText());
+            ResultSet rs = pr.executeQuery();
+
+            if (rs.isBeforeFirst() == false) {
+                //chưa có mã
+                pr.execute();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Mã hóa đơn đã tồn tại");
+            }
+
         }
+
         if (txtMahh.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Mã hàng hóa không được bỏ trống", "Chu y", 1);
             txtMahh.requestFocus();
             return false;
+        } else {
+            Connection con = DatabaseHelper.connectDb();
+            String SQL = "select * from HOADON where Mahh=?";
+            PreparedStatement pr = con.prepareStatement(SQL);
+            pr.setString(1, txtMahh.getText());
+            ResultSet rs = pr.executeQuery();
+
+            if (rs.isAfterLast() == false) {
+                //chưa có mã
+                JOptionPane.showMessageDialog(this, "Mã hàng hóa không tồn tại");
+
+            } else {
+                pr.execute();
+            }
+
         }
         if (txtSoluong.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Mã số lượng không được bỏ trống", "Chu y", 1);
+            JOptionPane.showMessageDialog(this, "Số lượng không được bỏ trống", "Chu y", 1);
             txtSoluong.requestFocus();
             return false;
         }
         if (txtDongia.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Mã đơn giá không được bỏ trống", "Chu y", 1);
+            JOptionPane.showMessageDialog(this, "Đơn giá không được bỏ trống", "Chu y", 1);
             txtDongia.requestFocus();
             return false;
         }
-//      String pName = this.txtManv.getText().trim();
-//        Iterator it = data.iterator();
-//        while (it.hasNext()) {
-//            Vector v = (Vector) it.next();
-//            String name = ((String) v.get(0)).trim();
-//            if (pName.equalsIgnoreCase(name)) {
-//                JOptionPane.showMessageDialog(this, "Mã nhân viên này đã tồn tại!");
-//                this.txtManv.grabFocus();
-//                return false;
-//            }
-//        }
-
         if (txtNgay.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Ngày sinh không được để trống ", "Chu y", 1);
+            JOptionPane.showMessageDialog(this, "Ngày mua hàng không được để trống ", "Chu y", 1);
             txtNgay.requestFocus();
             return false;
         }
         if (txtNgay.getText().matches("^([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))") == false) {
-            JOptionPane.showMessageDialog(this, "Ngày sinh không đúng định dạng (yyyy-MM-dd)", "Chu y", 1);
+            JOptionPane.showMessageDialog(this, "Ngày mua hàng không đúng định dạng (yyyy-MM-dd)", "Chu y", 1);
             txtNgay.requestFocus();
             return false;
         }
@@ -412,6 +454,29 @@ public class QLHoaDon extends javax.swing.JFrame {
         txtMakh.setText("");
         txtThanhTien.setText("");
         txtMahd.setEditable(true);
+    }
+
+    public void xoa() {
+        Hoadon emp = new Hoadon();
+        emp.setMahh(txtMahd.getText());
+        try {
+
+            Connection con = DatabaseHelper.connectDb();
+            String sql = "delete from HOADON where MAHD=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, emp.getMahh());
+            int rs = stmt.executeUpdate();
+            if (rs > 0) {
+                JOptionPane.showMessageDialog(null, "Xóa thanh công!!!");
+                loadData();
+            } else {
+                JOptionPane.showMessageDialog(null, "Xóa thất bại!!!");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("ket noi loi");
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -458,6 +523,7 @@ public class QLHoaDon extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
