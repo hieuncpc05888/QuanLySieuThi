@@ -35,7 +35,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
      */
     public QLHangHoavsKho() {
         initComponents();
-        setLocationRelativeTo(null);
+//        setLocationRelativeTo(null);
         setSize(750, 690);
         setTitle("Quan Ly Hang Hoa");
         loadData();
@@ -133,7 +133,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnThem);
-        btnThem.setBounds(535, 160, 117, 27);
+        btnThem.setBounds(530, 160, 130, 27);
 
         btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         btnCapnhat.setText("Cập Nhật");
@@ -143,7 +143,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCapnhat);
-        btnCapnhat.setBounds(535, 210, 117, 27);
+        btnCapnhat.setBounds(530, 210, 130, 27);
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
         btnXoa.setText("Xóa");
@@ -153,7 +153,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnXoa);
-        btnXoa.setBounds(535, 260, 110, 27);
+        btnXoa.setBounds(530, 260, 130, 27);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-avatar.gif"))); // NOI18N
 
@@ -230,7 +230,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnReset);
-        btnReset.setBounds(535, 300, 110, 27);
+        btnReset.setBounds(530, 310, 130, 27);
 
         btFist.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btFist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-first-1-20.png"))); // NOI18N
