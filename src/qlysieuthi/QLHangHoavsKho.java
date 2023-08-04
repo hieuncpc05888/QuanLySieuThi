@@ -35,8 +35,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
      */
     public QLHangHoavsKho() {
         initComponents();
-//        setLocationRelativeTo(null);
-        setSize(750, 690);
+        setLocationRelativeTo(null);
         setTitle("Quan Ly Hang Hoa");
         loadData();
         //        Display(current);
@@ -79,51 +78,41 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
         jLabel1.setText("Quản Lý Hàng Hóa");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 10, 220, 40);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 220, 40));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
         jLabel2.setText("Mã Hàng Hóa");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 70, 83, 16);
-        getContentPane().add(txtMahh);
-        txtMahh.setBounds(150, 68, 297, 22);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 83, -1));
+        getContentPane().add(txtMahh, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 68, 297, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jLabel3.setText("Tên hàng hóa");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 110, 90, 16);
-        getContentPane().add(txtTen);
-        txtTen.setBounds(148, 107, 299, 22);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 90, -1));
+        getContentPane().add(txtTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 107, 299, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 255));
         jLabel4.setText("Mã Khu Vực");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 150, 83, 16);
-        getContentPane().add(txtMakhuvuc);
-        txtMakhuvuc.setBounds(150, 147, 299, 22);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 83, -1));
+        getContentPane().add(txtMakhuvuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 147, 299, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 51, 255));
         jLabel5.setText("Mã Kho");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(40, 190, 55, 16);
-        getContentPane().add(txtMakho);
-        txtMakho.setBounds(150, 188, 299, 22);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 55, -1));
+        getContentPane().add(txtMakho, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 188, 299, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 255));
         jLabel6.setText("Loại Kho");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(40, 230, 60, 16);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 60, -1));
 
         btnThem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-new-ticket-20.png"))); // NOI18N
         btnThem.setText("Thêm");
@@ -132,8 +121,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnThemActionPerformed(evt);
             }
         });
-        getContentPane().add(btnThem);
-        btnThem.setBounds(530, 160, 130, 27);
+        getContentPane().add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 130, -1));
 
         btnCapnhat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         btnCapnhat.setText("Cập Nhật");
@@ -142,8 +130,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnCapnhatActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCapnhat);
-        btnCapnhat.setBounds(530, 210, 130, 27);
+        getContentPane().add(btnCapnhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 130, -1));
 
         btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
         btnXoa.setText("Xóa");
@@ -152,8 +139,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnXoaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnXoa);
-        btnXoa.setBounds(530, 260, 130, 27);
+        getContentPane().add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, 130, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-avatar.gif"))); // NOI18N
 
@@ -174,8 +160,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(543, 68, 94, 70);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 68, -1, -1));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
         btnExit.setText("Exit");
@@ -184,8 +169,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit);
-        btnExit.setBounds(220, 590, 100, 30);
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 590, 100, 30));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
         btnBack.setText("Back");
@@ -194,8 +178,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack);
-        btnBack.setBounds(427, 593, 100, 30);
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 593, 100, 30));
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,12 +198,10 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblData);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 392, 701, 164);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 392, 701, 164));
 
         cboLoai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kho đông lạnh", "Kho sản phẩm", "Kho trung chuyển", " " }));
-        getContentPane().add(cboLoai);
-        cboLoai.setBounds(150, 230, 299, 22);
+        getContentPane().add(cboLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 299, -1));
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         btnReset.setText("Reset");
@@ -229,8 +210,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnResetActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReset);
-        btnReset.setBounds(530, 310, 130, 27);
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 130, -1));
 
         btFist.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btFist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-first-1-20.png"))); // NOI18N
@@ -240,8 +220,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btFistActionPerformed(evt);
             }
         });
-        getContentPane().add(btFist);
-        btFist.setBounds(48, 342, 90, 32);
+        getContentPane().add(btFist, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 342, 90, 32));
 
         btnPre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-prev-20.png"))); // NOI18N
@@ -251,8 +230,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnPreActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPre);
-        btnPre.setBounds(168, 342, 79, 32);
+        getContentPane().add(btnPre, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 342, 80, 32));
 
         btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-next-20.png"))); // NOI18N
@@ -262,8 +240,7 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext);
-        btnNext.setBounds(274, 342, 81, 32);
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 342, 82, 32));
 
         btnLast.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-last-1-20.png"))); // NOI18N
@@ -273,15 +250,14 @@ public class QLHangHoavsKho extends javax.swing.JFrame {
                 btnLastActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLast);
-        btnLast.setBounds(399, 342, 100, 32);
+        getContentPane().add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 342, 100, 32));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/kho.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 0, 750, 660);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 650));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
