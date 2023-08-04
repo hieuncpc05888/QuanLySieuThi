@@ -292,7 +292,7 @@ public class QLNhanVien extends javax.swing.JFrame {
                 btnLastActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 367, 76, 32));
+        getContentPane().add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 367, 80, 32));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/ky-nang-quan-ly-nhan-vien.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
