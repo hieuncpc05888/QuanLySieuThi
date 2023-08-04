@@ -369,6 +369,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnXoa">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/qlysieuthi/IMG/icons8-delete-20.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
       </Properties>
       <Events>

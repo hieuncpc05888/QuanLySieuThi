@@ -223,6 +223,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         });
         getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 160, -1));
 
+        btnXoa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-delete-20.png"))); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

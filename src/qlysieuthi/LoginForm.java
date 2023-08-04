@@ -4,6 +4,13 @@
  */
 package qlysieuthi;
 
+import DatabaseHelper.DatabaseHelper;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +21,6 @@ public class LoginForm extends javax.swing.JFrame {
 
     String User = "Admin";
     String Pass1 = "123";
-   
 
     /**
      * Creates new form LoginForm
@@ -24,7 +30,7 @@ public class LoginForm extends javax.swing.JFrame {
         setSize(780, 372);
         setLocationRelativeTo(null);
         setTitle("LOGIN");
-        
+
     }
 
     /**
@@ -98,7 +104,18 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuiActionPerformed
-        // TODO add your handling code here:
+        try {
+            dangnhap();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGuiActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    public void dangnhap() throws SQLException {
         if (txtTaiKhoan.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Tên tài khoản không được bỏ trống");
             return;
@@ -107,20 +124,22 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Mật khẩu không được bỏ trống");
             return;
         }
-        if (txtTaiKhoan.getText().equalsIgnoreCase(User) && txtMatkhau.getText().equals(Pass1)) {
+        String username = txtTaiKhoan.getText();
+        String password = txtMatkhau.getText();
+
+        Connection con = DatabaseHelper.connectDb();
+        Statement st = con.createStatement();
+        String sql = "Select * from users where username='" + username + "' and password='" + password + "'";
+        ResultSet rs = st.executeQuery(sql);
+        if (rs.isBeforeFirst() == false) {
+            JOptionPane.showMessageDialog(this, "Tài khoản với mật khẩu không đúng");
+        } else {
             JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
             FormOption form = new FormOption();
             form.show();
-            this.hide();
-        } else {
-            JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
-           
+            dispose();
         }
-    }//GEN-LAST:event_btnGuiActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
+    }
 
     /**
      * @param args the command line arguments
