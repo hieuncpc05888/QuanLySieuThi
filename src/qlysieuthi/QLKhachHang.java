@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package qlysieuthi;
+import static java.lang.ProcessHandle.current; // Move
 
 import Class.KhachHang;
 import Class.Nhanvien;
@@ -27,6 +28,8 @@ public class QLKhachHang extends javax.swing.JFrame {
 
     List<KhachHang> listkh = new ArrayList<>();
     int index;
+    //    int current = 0;
+    //    int index = 0;
 
     /**
      * Creates new form QLSieuThi
@@ -36,6 +39,7 @@ public class QLKhachHang extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Quan Ly Khach Hang");
         loadData();
+        //        Display(current);
     }
 
     /**

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package qlysieuthi;
+import static java.lang.ProcessHandle.current; // Move
 
 import Class.HangVaKho;
 import Class.Hoadon;
@@ -27,6 +28,8 @@ import javax.swing.table.DefaultTableModel;
 public class QLHoaDon extends javax.swing.JFrame {
 
     List<Hoadon> list = new ArrayList<>();
+    //    int current = 0;
+    //    int index = 0;
 
     /**
      * Creates new form QLSieuThi
@@ -36,6 +39,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Quan Ly Hoa Don");
         loadData();
+        //        Display(current);
     }
 
     /**
@@ -73,10 +77,14 @@ public class QLHoaDon extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblData = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
+        btFist = new javax.swing.JButton();
+        btnPre = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        btnLast = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,7 +175,7 @@ public class QLHoaDon extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 660, 107, 30));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 690, 107, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Mã Hàng Hóa");
@@ -189,7 +197,7 @@ public class QLHoaDon extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, 110, 30));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 690, 110, 30));
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -209,12 +217,9 @@ public class QLHoaDon extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblData);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 419, -1, 205));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, 205));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/Background-xanh-duong-nhat.jpeg"))); // NOI18N
-        jLabel12.setText("jLabel12");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 610, 270));
-
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,9 +237,53 @@ public class QLHoaDon extends javax.swing.JFrame {
         });
         getContentPane().add(btnXoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 160, -1));
 
+        btFist.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btFist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-first-1-20.png"))); // NOI18N
+        btFist.setText("First");
+        btFist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFistActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btFist, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, -1, 32));
+
+        btnPre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-prev-20.png"))); // NOI18N
+        btnPre.setText("Prev");
+        btnPre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, 32));
+
+        btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-next-20.png"))); // NOI18N
+        btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, -1, 32));
+
+        btnLast.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-last-1-20.png"))); // NOI18N
+        btnLast.setText("Last");
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLastActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 400, 80, 32));
+
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/hoa don.jpg"))); // NOI18N
         jLabel11.setText("jLabel11");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 470));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 450));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/Background-xanh-duong-nhat.jpeg"))); // NOI18N
+        jLabel12.setText("jLabel12");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 610, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -285,6 +334,37 @@ public class QLHoaDon extends javax.swing.JFrame {
             reset();
         }
     }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btFistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFistActionPerformed
+        //       current = 0;
+        //        Display(current);
+    }//GEN-LAST:event_btFistActionPerformed
+
+    private void btnPreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreActionPerformed
+        // TODO add your handling code here:
+        //        current--;
+        //        if (current < 0) {
+            //            JOptionPane.showMessageDialog(null, "Đang ở đầu danh sách!!");
+            //            return;
+            //        }
+        //        Display(current);
+    }//GEN-LAST:event_btnPreActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+
+        //        current++;
+        //        if (current >= list.size()) {
+            //            JOptionPane.showMessageDialog(null, "Đang ở cuối danh sách!!");
+            //            return;
+            //        }
+        //        Display(current);
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
+        // TODO add your handling code here:
+        //        current = list.size() - 1;
+        //        Display(current);
+    }//GEN-LAST:event_btnLastActionPerformed
 
     public void insertEmployee() {
         try {
@@ -519,9 +599,13 @@ public class QLHoaDon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btFist;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCapnhat;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnLast;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPre;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
