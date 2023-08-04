@@ -20,7 +20,7 @@ public class FormOption extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("OPTION FORM");
-        setSize(710, 640);
+        setSize(700, 630);
     }
 
     int width = 220;
@@ -88,8 +88,6 @@ public class FormOption extends javax.swing.JFrame {
         pnContainer = new javax.swing.JPanel();
         Home = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        Acc = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,11 +102,16 @@ public class FormOption extends javax.swing.JFrame {
         pnMenu.setBackground(new java.awt.Color(255, 255, 255));
         pnMenu.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        pnMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Trang chủ");
+        pnMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 189, -1, -1));
+        pnMenu.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 180, 172, -1));
+        pnMenu.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 466, 184, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-procurement-96.png"))); // NOI18N
         jLabel2.setText("jLabel2");
+        pnMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 50, 103, -1));
 
         lblCloseMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-close-32.png"))); // NOI18N
         lblCloseMenu.setText("jLabel3");
@@ -117,8 +120,10 @@ public class FormOption extends javax.swing.JFrame {
                 lblCloseMenuMouseClicked(evt);
             }
         });
+        pnMenu.add(lblCloseMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 2, 35, 42));
 
         jLabel4.setText("SIÊU THỊ");
+        pnMenu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 158, -1, -1));
 
         btnQlnhanvien.setText("Quản Lý Nhân Viên");
         btnQlnhanvien.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +131,7 @@ public class FormOption extends javax.swing.JFrame {
                 btnQlnhanvienActionPerformed(evt);
             }
         });
+        pnMenu.add(btnQlnhanvien, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 217, 142, -1));
 
         btnQlhoadon.setText("Quản Lý Hóa Đơn");
         btnQlhoadon.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +139,7 @@ public class FormOption extends javax.swing.JFrame {
                 btnQlhoadonActionPerformed(evt);
             }
         });
+        pnMenu.add(btnQlhoadon, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 305, 142, -1));
 
         btnQlkhachhang.setText("Quản Lý Khách Hàng");
         btnQlkhachhang.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +147,7 @@ public class FormOption extends javax.swing.JFrame {
                 btnQlkhachhangActionPerformed(evt);
             }
         });
+        pnMenu.add(btnQlkhachhang, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 258, -1, -1));
 
         btnQlhanghoa.setText("Quản Lý Hàng Hóa");
         btnQlhanghoa.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +155,7 @@ public class FormOption extends javax.swing.JFrame {
                 btnQlhanghoaActionPerformed(evt);
             }
         });
+        pnMenu.add(btnQlhanghoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 346, 142, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
         btnBack.setText("Back");
@@ -155,6 +164,7 @@ public class FormOption extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
+        pnMenu.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 529, 100, 30));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
         btnExit.setText("Exit");
@@ -163,78 +173,7 @@ public class FormOption extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pnMenuLayout = new javax.swing.GroupLayout(pnMenu);
-        pnMenu.setLayout(pnMenuLayout);
-        pnMenuLayout.setHorizontalGroup(
-            pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator2)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(63, 63, 63))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(59, 59, 59))))
-            .addGroup(pnMenuLayout.createSequentialGroup()
-                .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMenuLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblCloseMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(pnMenuLayout.createSequentialGroup()
-                        .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnMenuLayout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnMenuLayout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnMenuLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnQlnhanvien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnQlkhachhang, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnQlhoadon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnQlhanghoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        pnMenuLayout.setVerticalGroup(
-            pnMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnMenuLayout.createSequentialGroup()
-                .addComponent(lblCloseMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnQlnhanvien)
-                .addGap(18, 18, 18)
-                .addComponent(btnQlkhachhang)
-                .addGap(24, 24, 24)
-                .addComponent(btnQlhoadon)
-                .addGap(18, 18, 18)
-                .addComponent(btnQlhanghoa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
+        pnMenu.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 487, 100, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-menu-48.png"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -243,33 +182,25 @@ public class FormOption extends javax.swing.JFrame {
         pnContainer.setLayout(new java.awt.CardLayout());
 
         Home.setBackground(new java.awt.Color(255, 255, 255));
-        Home.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/optionform.jpeg"))); // NOI18N
-        Home.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 430));
+
+        javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
+        Home.setLayout(HomeLayout);
+        HomeLayout.setHorizontalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addGap(0, 40, Short.MAX_VALUE))
+        );
+        HomeLayout.setVerticalGroup(
+            HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pnContainer.add(Home, "card2");
-
-        jLabel7.setText("IMG");
-
-        javax.swing.GroupLayout AccLayout = new javax.swing.GroupLayout(Acc);
-        Acc.setLayout(AccLayout);
-        AccLayout.setHorizontalGroup(
-            AccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AccLayout.createSequentialGroup()
-                .addGap(288, 288, 288)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(415, Short.MAX_VALUE))
-        );
-        AccLayout.setVerticalGroup(
-            AccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AccLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel7)
-                .addContainerGap(384, Short.MAX_VALUE))
-        );
-
-        pnContainer.add(Acc, "card3");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("CHÀO MỪNG BẠN ĐẾN VỚI PHẦN MỀM CỦA MÌNH!!!");
@@ -287,7 +218,7 @@ public class FormOption extends javax.swing.JFrame {
                     .addGroup(pnMainLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
+                        .addGap(104, 104, 104)
                         .addComponent(jLabel3)
                         .addContainerGap())))
         );
@@ -400,7 +331,6 @@ public class FormOption extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Acc;
     private javax.swing.JPanel Home;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnExit;
@@ -414,7 +344,6 @@ public class FormOption extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblCloseMenu;

@@ -19,8 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class LoginForm extends javax.swing.JFrame {
 
-    String User = "Admin";
-    String Pass1 = "123";
+   
 
     /**
      * Creates new form LoginForm
