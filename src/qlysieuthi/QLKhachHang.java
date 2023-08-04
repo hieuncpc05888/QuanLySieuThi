@@ -74,10 +74,6 @@ public class QLKhachHang extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblData = new javax.swing.JTable();
         btnReset = new javax.swing.JButton();
-        btFist = new javax.swing.JButton();
-        btnPre = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        btnLast = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
@@ -173,7 +169,7 @@ public class QLKhachHang extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 610, 100, 30));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, 100, 30));
 
         txtDiachi.setColumns(20);
         txtDiachi.setRows(5);
@@ -188,7 +184,7 @@ public class QLKhachHang extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, 100, 30));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 570, 100, 30));
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -208,7 +204,7 @@ public class QLKhachHang extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblData);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, 160));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, 160));
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
         btnReset.setText("Reset");
@@ -218,46 +214,6 @@ public class QLKhachHang extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 100, -1));
-
-        btFist.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btFist.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-first-1-20.png"))); // NOI18N
-        btFist.setText("First");
-        btFist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFistActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btFist, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 367, -1, 32));
-
-        btnPre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnPre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-prev-20.png"))); // NOI18N
-        btnPre.setText("Prev");
-        btnPre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnPre, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 367, -1, 32));
-
-        btnNext.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-next-20.png"))); // NOI18N
-        btnNext.setText("Next");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 367, -1, 32));
-
-        btnLast.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-last-1-20.png"))); // NOI18N
-        btnLast.setText("Last");
-        btnLast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 367, 80, 32));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/qly khach hang.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -311,37 +267,6 @@ public class QLKhachHang extends javax.swing.JFrame {
         // TODO add your handling code here:
         displayFrom();
     }//GEN-LAST:event_tblDataMouseClicked
-
-    private void btFistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFistActionPerformed
-        //       current = 0;
-        //        Display(current);
-    }//GEN-LAST:event_btFistActionPerformed
-
-    private void btnPreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreActionPerformed
-        // TODO add your handling code here:
-        //        current--;
-        //        if (current < 0) {
-            //            JOptionPane.showMessageDialog(null, "Đang ở đầu danh sách!!");
-            //            return;
-            //        }
-        //        Display(current);
-    }//GEN-LAST:event_btnPreActionPerformed
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-
-        //        current++;
-        //        if (current >= list.size()) {
-            //            JOptionPane.showMessageDialog(null, "Đang ở cuối danh sách!!");
-            //            return;
-            //        }
-        //        Display(current);
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
-        // TODO add your handling code here:
-        //        current = list.size() - 1;
-        //        Display(current);
-    }//GEN-LAST:event_btnLastActionPerformed
 
     public void insertEmployee() {
         try {
@@ -557,13 +482,9 @@ public class QLKhachHang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btFist;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCapnhat;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnLast;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnPre;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
