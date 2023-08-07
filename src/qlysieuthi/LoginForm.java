@@ -96,7 +96,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/spmarket.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 450, 372);
+        jLabel4.setBounds(-10, -10, 460, 380);
 
         pack();
         setLocationRelativeTo(null);

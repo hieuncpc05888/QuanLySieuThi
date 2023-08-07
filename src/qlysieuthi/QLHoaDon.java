@@ -402,20 +402,6 @@ public class QLHoaDon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Mã hàng hóa không được bỏ trống", "Chu y", 1);
             txtMahh.requestFocus();
             return false;
-        } else {
-            Connection con = DatabaseHelper.connectDb();
-            String SQL = "select * from HOADON where Mahh=?";
-            PreparedStatement pr = con.prepareStatement(SQL);
-            pr.setString(1, txtMahh.getText());
-            ResultSet rs = pr.executeQuery();
-
-            if (rs.isAfterLast() == false) {
-                //chưa có mã
-                JOptionPane.showMessageDialog(this, "Mã hàng hóa không tồn tại");
-
-            } else {
-                pr.execute();
-            }
 
         }
         if (txtSoluong.getText().equals("")) {

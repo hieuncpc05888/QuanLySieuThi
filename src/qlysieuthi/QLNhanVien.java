@@ -501,7 +501,7 @@ public class QLNhanVien extends javax.swing.JFrame {
            
         } 
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Lương phải là số", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Lương phải là số");
             return false;
             
         }
