@@ -165,7 +165,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         getContentPane().add(txtMakh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 213, -1));
 
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
-        btnExit.setText("Exit");
+        btnExit.setText("Thoát");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -187,7 +187,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         getContentPane().add(txtThanhTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 353, 213, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Trở về");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -216,7 +216,7 @@ public class QLHoaDon extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, 205));
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-update-20.png"))); // NOI18N
-        btnReset.setText("Reset");
+        btnReset.setText("Làm mới");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);

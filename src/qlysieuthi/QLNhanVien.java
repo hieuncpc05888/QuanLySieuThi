@@ -180,13 +180,13 @@ public class QLNhanVien extends javax.swing.JFrame {
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-exit-30.png"))); // NOI18N
-        btnExit.setText("Exit");
+        btnExit.setText("Thoát");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, 90, 30));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, 30));
 
         txtDiachi.setColumns(20);
         txtDiachi.setRows(5);
@@ -212,7 +212,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         getContentPane().add(rdoNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-back-30.png"))); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Trở về");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -241,7 +241,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 560, 130));
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-save-20.png"))); // NOI18N
-        btnReset.setText("Reset");
+        btnReset.setText("Làm mới");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
@@ -296,7 +296,7 @@ public class QLNhanVien extends javax.swing.JFrame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        int check = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa hay không");
+        int check = JOptionPane.showConfirmDialog(rootPane, "Bạn có muốn xóa hay không!");
         if (check == 0) {
             xoa();
             reset();
@@ -326,7 +326,7 @@ public class QLNhanVien extends javax.swing.JFrame {
             st.setBoolean(5, gt);
             st.setDouble(6, Double.parseDouble(txtLuong.getText()));
             st.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Thêm thành công");
+            JOptionPane.showMessageDialog(this, "Thêm thành công!");
             con.close();
             loadData();
         } catch (Exception e) {
@@ -366,7 +366,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         try {
 
             Connection con = DatabaseHelper.connectDb();
-            System.out.println("ket noi thanh cong");
+            System.out.println("Ket noi thanh cong");
             String sql = "delete from NHANVIEN where Manv=?";
 
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -527,42 +527,42 @@ public class QLNhanVien extends javax.swing.JFrame {
         }
         txtLuong.setText(tblData.getValueAt(i, 5).toString());
     }
-        public void dau() {
-        current = 0;
-        Display(current);
-    }
-
-    public void lui() {
-        if (current == 0) {
-            JOptionPane.showMessageDialog(this, "Đang ở đầu dang sách");
-            return;
-        } else {
-            current--;
-            if (current < 0) {
-                return;
-            }
-            Display(current);
-        }
-    }
-
-    public void tiep() {
-        if (current == list.size() - 1) {
-            JOptionPane.showMessageDialog(this, "Đang ở cuối dang sách");
-            return;
-        } else {
-            current++;
-            if (current >= list.size()) {
-                JOptionPane.showMessageDialog(this, "Đang ở đầu dang sách");
-                return;
-            }
-            Display(current);
-        }
-    }
-
-    public void cuoi() {
-        current = list.size() - 1;
-        Display(current);
-    }
+//        public void dau() {
+//        current = 0;
+//        Display(current);
+//    }
+//
+//    public void lui() {
+//        if (current == 0) {
+//            JOptionPane.showMessageDialog(this, "Đang ở đầu dang sách");
+//            return;
+//        } else {
+//            current--;
+//            if (current < 0) {
+//                return;
+//            }
+//            Display(current);
+//        }
+//    }
+//
+//    public void tiep() {
+//        if (current == list.size() - 1) {
+//            JOptionPane.showMessageDialog(this, "Đang ở cuối dang sách");
+//            return;
+//        } else {
+//            current++;
+//            if (current >= list.size()) {
+//                JOptionPane.showMessageDialog(this, "Đang ở đầu dang sách");
+//                return;
+//            }
+//            Display(current);
+//        }
+//    }
+//
+//    public void cuoi() {
+//        current = list.size() - 1;
+//        Display(current);
+//    }
 
     /**
      * @param args the command line arguments
