@@ -85,8 +85,8 @@ public class QLNhanVien extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblData = new javax.swing.JTable();
         btnReset = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        btnTim = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -249,13 +249,17 @@ public class QLNhanVien extends javax.swing.JFrame {
         });
         getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, 110, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/ky-nang-quan-ly-nhan-vien.jpg"))); // NOI18N
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 360));
-
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/Background-xanh-duong-nhat.jpeg"))); // NOI18N
         jLabel10.setText("jLabel10");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 560, 260));
+
+        btnTim.setText("Tìm");
+        btnTim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTim, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -307,6 +311,10 @@ public class QLNhanVien extends javax.swing.JFrame {
         // TODO add your handling code here:
         reset();
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTimActionPerformed
 
     public void insertEmployee() {
         try {
@@ -607,6 +615,7 @@ public class QLNhanVien extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTim;
     private javax.swing.JButton btnXoa;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -618,7 +627,6 @@ public class QLNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

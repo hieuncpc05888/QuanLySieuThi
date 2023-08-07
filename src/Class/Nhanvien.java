@@ -13,19 +13,10 @@ public class Nhanvien {
     String Tennv;
     String NgaySinh;
     String Dchi;
-    boolean Phai;
+    int Phai;
     double Luong;
 
     public Nhanvien() {
-    }
-
-    public Nhanvien(String Manv, String Tennv, String NgaySinh, String Dchi, boolean Phai, double Luong) {
-        this.Manv = Manv;
-        this.Tennv = Tennv;
-        this.NgaySinh = NgaySinh;
-        this.Dchi = Dchi;
-        this.Phai = Phai;
-        this.Luong = Luong;
     }
 
     public String getManv() {
@@ -60,11 +51,11 @@ public class Nhanvien {
         this.Dchi = Dchi;
     }
 
-    public boolean isPhai() {
+    public int getPhai() {
         return Phai;
     }
 
-    public void setPhai(boolean Phai) {
+    public void setPhai(int Phai) {
         this.Phai = Phai;
     }
 
@@ -76,5 +67,13 @@ public class Nhanvien {
         this.Luong = Luong;
     }
 
-    
+    public Nhanvien(String Manv, String Tennv, String NgaySinh, String Dchi, int Phai, double Luong) {
+        this.Manv = Manv;
+        this.Tennv = Tennv;
+        this.NgaySinh = NgaySinh;
+        this.Dchi = Dchi;
+        this.Phai = Phai;
+        this.Luong = Luong;
+    }
+
 }
