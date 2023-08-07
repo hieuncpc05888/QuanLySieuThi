@@ -496,6 +496,15 @@ public class QLNhanVien extends javax.swing.JFrame {
             txtLuong.requestFocus();
             return false;
         }
+         try {
+            Double.parseDouble(txtLuong.getText());
+           
+        } 
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Lương phải là số", "Error", JOptionPane.WARNING_MESSAGE);
+            return false;
+            
+        }
         return true;
     }
 
@@ -528,6 +537,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         }
         txtLuong.setText(tblData.getValueAt(i, 5).toString());
     }
+     
 //        public void dau() {
 //        current = 0;
 //        Display(current);
