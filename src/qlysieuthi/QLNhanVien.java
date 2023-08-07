@@ -238,7 +238,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblData);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 560, 130));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 560, 170));
 
         btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/qlysieuthi/IMG/icons8-save-20.png"))); // NOI18N
         btnReset.setText("Làm mới");
@@ -484,6 +484,7 @@ public class QLNhanVien extends javax.swing.JFrame {
         if (txtDiachi.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Địa chỉ không được để trống ", "Chu y", 1);
             txtDiachi.requestFocus();
+            
             return false;
         }
         if (!rdoNam.isSelected() && !rdoNu.isSelected()) {
